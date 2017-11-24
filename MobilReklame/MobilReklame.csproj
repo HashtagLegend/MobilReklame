@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Offer.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
