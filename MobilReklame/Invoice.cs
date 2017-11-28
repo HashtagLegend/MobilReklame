@@ -48,7 +48,6 @@ namespace MobilReklame
         #region Methods
         public string getOffer
         {
-            
         }
 
         public string Customer
