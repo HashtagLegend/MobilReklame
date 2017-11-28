@@ -34,12 +34,16 @@ namespace MobilReklame
         }
         #endregion
 
+        #region Constructor
+
         public Invoice(int invoidid, DateTime madeDateTime, string commentary)
         {
             _invoidid = invoidid;
             _madeDateTime = madeDateTime;
             _commentary = commentary;
         }
+
+        #endregion
 
         #region Methods
         public string getOffer
@@ -53,6 +57,6 @@ namespace MobilReklame
         }
         #endregion
 
-        c
+        
     }
 }
