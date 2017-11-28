@@ -34,10 +34,18 @@ namespace MobilReklame
         }
         #endregion
 
+        #region Constructor
+
+        public Invoice()
+        {
+            
+        }
+        
+        #endregion
+
         #region Methods
         public string getOffer
         {
-            
         }
 
         public string Customer
