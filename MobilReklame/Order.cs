@@ -64,14 +64,14 @@ namespace MobilReklame
             
         }
 
-        public ShowOffer()
+        public void ShowOffer()
         {
-            return;
+           
         }
 
-        public ShowInvoice()
+        public void ShowInvoice()
         {
-            return;
+            
         }
 
         public void EndOrder()
@@ -80,6 +80,13 @@ namespace MobilReklame
         }
 
 
+        #endregion
+
+        #region Order ToString
+        public override string ToString()
+        {
+            return $"{nameof(OrderName)}: {OrderName}, {nameof(OrderId)}: {OrderId}, {nameof(OrderSpecs)}: {OrderSpecs}";
+        }
         #endregion
     }
 }
