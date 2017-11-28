@@ -17,13 +17,13 @@ namespace MobilReklame
         public Offer OfferToOrder { get; set; }
         public Invoice InvoiceToOrder { get; set; }
         public Customer CustomerToOrder { get; set; }
-        public string ViewProductName { get; set; }
         public string ViewCompanyName { get; set; }
         public string ViewPhoneNumber { get; set; }
         public string ViewAdress { get; set; }
         public string ViewEmail { get; set; }
         public string ViewATT { get; set; }
         public string ViewCVR { get; set; }
+   
 
 
         #endregion
@@ -41,14 +41,17 @@ namespace MobilReklame
 
         #region Methods
 
-        public void CreateOffer()
+        public void CreateOffer(string name)
         {
-            OfferToOrder = new Offer(ViewProductName);
+            OfferToOrder = new Offer(name);
+            this.OfferToOrder.CalculateTotalPrice();
         }
 
-        public void CreateInvoice()
+        public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
-            InvoiceToOrder = new Invoice();
+            InvoiceToOrder = new Invoice(invoiceid,DateTime.Now, commentary);
+            double totalprice = this.OfferToOrder.TotalPrice;
+
         }
 
         public void CreateCustomer()
