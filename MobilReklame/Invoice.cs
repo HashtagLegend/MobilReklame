@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    class Invoice
+   public class Invoice
     {
         #region Backing Fields
         private int _invoidid;

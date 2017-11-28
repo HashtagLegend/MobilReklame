@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    class Customer
+    public class Customer
     {
         #region Instance Field
         private string _companyName;

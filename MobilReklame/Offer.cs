@@ -11,12 +11,14 @@ namespace MobilReklame
    {
 
         private double _vat = 1.25;
-
         public string OfferID { get; set; }
         public string Name { get; set; }
         public double TotalPrice { get; set; }
         public List<Product> ProductList{ get; set; }
-
+        public string ViewName { get; set; }
+        public string ViewType { get; set; }
+        public int ViewQuantity { get; set; }
+        public double ViewPrice { get; set; }
 
 
         public Offer(string offerId, string name)
@@ -28,7 +30,7 @@ namespace MobilReklame
 
        public void CreateProduct()
        {
-           ProductList.Add(new Product());
+           ProductList.Add(new Product(ViewName, ViewType, ViewQuantity, ViewPrice));
        }
 
        public void CalculateTotalPrice()

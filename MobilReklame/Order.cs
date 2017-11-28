@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-    class Order
+    public class Order
     {
         #region Properties
 
