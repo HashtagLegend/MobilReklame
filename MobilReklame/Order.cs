@@ -17,7 +17,6 @@ namespace MobilReklame
         public Offer OfferToOrder { get; set; }
         public Invoice InvoiceToOrder { get; set; }
         public Customer CustomerToOrder { get; set; }
-        public string ViewID { get; set; }
         public string ViewProductName { get; set; }
         public string ViewCompanyName { get; set; }
         public string ViewPhoneNumber { get; set; }
@@ -44,7 +43,7 @@ namespace MobilReklame
 
         public void CreateOffer()
         {
-            OfferToOrder = new Offer(ViewID,ViewProductName);
+            OfferToOrder = new Offer(ViewProductName);
         }
 
         public void CreateInvoice()

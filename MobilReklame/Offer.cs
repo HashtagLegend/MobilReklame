@@ -11,7 +11,7 @@ namespace MobilReklame
    {
 
         private double _vat = 1.25;
-        public string OfferID { get; set; }
+        public int OfferID { get; set; }
         public string Name { get; set; }
         public double TotalPrice { get; set; }
         public List<Product> ProductList{ get; set; }
@@ -19,11 +19,13 @@ namespace MobilReklame
         public string ViewType { get; set; }
         public int ViewQuantity { get; set; }
         public double ViewPrice { get; set; }
+       private int _offerCounter = 0;
 
 
-        public Offer(string offerId, string name)
+        public Offer(string name)
         {
-            OfferID = offerId;
+            OfferID = _offerCounter;
+            _offerCounter++;
             Name = name;
             ProductList = new List<Product>();
         }
