@@ -41,16 +41,15 @@ namespace MobilReklame
 
         #region Methods
 
-        public void CreateOffer(string name)
+        public void CreateOffer()
         {
-            OfferToOrder = new Offer(name);
-            this.OfferToOrder.CalculateTotalPrice();
+            OfferToOrder = new Offer();
         }
 
         public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
             InvoiceToOrder = new Invoice(invoiceid,DateTime.Now, commentary);
-            double totalprice = this.OfferToOrder.TotalPrice;
+            double totalprice = OfferToOrder.TotalPrice;
 
         }
 

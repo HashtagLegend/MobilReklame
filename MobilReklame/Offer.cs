@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,25 +15,20 @@ namespace MobilReklame
         public int OfferID { get; set; }
         public string Name { get; set; }
         public double TotalPrice { get; set; }
-        public List<Product> ProductList{ get; set; }
-        public string ViewName { get; set; }
-        public string ViewType { get; set; }
-        public int ViewQuantity { get; set; }
-        public double ViewPrice { get; set; }
-       private int _offerCounter = 0;
+        public ObservableCollection<Product> ProductList{ get; set; }
+        private int _offerCounter = 0;
 
 
-        public Offer(string name)
+        public Offer()
         {
             OfferID = _offerCounter;
             _offerCounter++;
-            Name = name;
-            ProductList = new List<Product>();
+            ProductList = new ObservableCollection<Product>();
         }
 
-       public void CreateProduct()
+       public void CreateProduct(string name, int quantity, double price)
        {
-           ProductList.Add(new Product(ViewName, ViewType, ViewQuantity, ViewPrice));
+           ProductList.Add(new Product(name,quantity, price));
        }
 
        public void CalculateTotalPrice()

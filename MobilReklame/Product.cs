@@ -10,7 +10,6 @@ namespace MobilReklame
     {
         #region Instance Field
         private string _name;
-        private string _type;
         private int _quantity;
         private double _price;
         //Oprettelse af instance fields ud fra klasse diagram, så vi har varenavn, varetype,
@@ -18,10 +17,9 @@ namespace MobilReklame
         #endregion
 
         #region Constructor
-        public Product(string name, string type, int quantity, double price)
+        public Product(string name, int quantity, double price)
         {
             _name = name;
-            _type = type;
             _quantity = quantity;
             _price = price;
         }
@@ -35,11 +33,7 @@ namespace MobilReklame
             set { _name = value; }
         }
 
-        public string Type
-        {
-            get { return _type; }
-            set { _type = value; }
-        }
+
 
         public int Quantity
         {
