@@ -12,7 +12,7 @@
         <Grid.DataContext>
             <local:OrderViewModel/>
         </Grid.DataContext>
-        <ListView HorizontalAlignment="Left" Height="525" Margin="130,125,0,0" VerticalAlignment="Top" Width="522" ItemsSource="{Binding OverViewList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListView HorizontalAlignment="Left" Height="525" Margin="130,125,0,0" VerticalAlignment="Top" Width="522" ItemsSource="{Binding OverViewList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" AutomationProperties.Name=""/>
         <TextBox x:Name="OrderNameInputBox" HorizontalAlignment="Left" Margin="733,144,0,0" TextWrapping="Wrap" Text="{Binding ViewOrderName, Mode=TwoWay}" VerticalAlignment="Top"/>
         <TextBox x:Name="OrderIdInputBox" HorizontalAlignment="Left" Margin="733,217,0,0" TextWrapping="Wrap" Text="{Binding ViewOrderID, Mode=TwoWay}" VerticalAlignment="Top"/>
         <TextBox x:Name="OrderSpecsInputBox" HorizontalAlignment="Left" Margin="733,290,0,0" TextWrapping="Wrap" Text="{Binding ViewOrderSpecs, Mode=TwoWay}" VerticalAlignment="Top"/>
@@ -29,13 +29,20 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="CreateOrderview" Margin="1212,144,0,0" VerticalAlignment="Top">
+        <Button Content="Navigate" HorizontalAlignment="Left" Height="74" Margin="992,459,0,0" VerticalAlignment="Top" Width="218">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
+                    <Core:NavigateToPageAction TargetPage="MobilReklame.OfferView"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
-        </AppBarButton>
+        </Button>
+        <Button Content="Save" HorizontalAlignment="Left" Height="74" Margin="791,459,0,0" VerticalAlignment="Top" Width="70">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:CallMethodAction MethodName="SaveSelectedWhenNavigate" TargetObject="{Binding Mode=OneWay}"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
 
     </Grid>
 </Page>
