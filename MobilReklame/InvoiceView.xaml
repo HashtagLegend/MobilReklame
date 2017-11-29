@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="Gem" Content="Gem" HorizontalAlignment="Left" Margin="810,918,0,0" VerticalAlignment="Top" Height="44" Width="116" FontSize="24"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="273" Margin="687,237,0,0" VerticalAlignment="Top" Width="266"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="746" Margin="953,237,0,0" VerticalAlignment="Top" Width="940"/>
         <Button Content="Opret Tilbud&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="1052,306,0,0" VerticalAlignment="Top" Width="402" FontSize="24"/>
@@ -41,6 +40,7 @@
             <AppBarButton Icon="Accept" Label="AppBarButton"/>
             <AppBarButton Icon="Cancel" Label="AppBarButton"/>
         </CommandBar>
+        <Button Content="Gem" HorizontalAlignment="Left" Margin="816,916,0,0" VerticalAlignment="Top" FontSize="24" Height="47" Width="110"/>
 
     </Grid>
 </Page>
