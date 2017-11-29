@@ -13,19 +13,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
-        <CommandBar Margin="0,170,0,0" Height="53">
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
-            <AppBarButton Icon="Home" Label="Igangværende Ordre" VerticalAlignment="Stretch">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </AppBarButton>
-        </CommandBar>
-        <Image Margin="10,0,1165,905" Source="mrlogo.png" Stretch="Fill"/>
+        <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
         <TextBlock x:Name="OrdrenavnTBl" HorizontalAlignment="Left" Margin="38,258,0,0" TextWrapping="Wrap" Text="Ordrenavn:" VerticalAlignment="Top" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,307,0,0" TextWrapping="Wrap" Text="Ordrenr:" VerticalAlignment="Top" FontSize="24"/>
         <TextBox HorizontalAlignment="Left" Margin="270,246,0,0" TextWrapping="Wrap" Text="{Binding ViewOrderName, Mode=TwoWay}" VerticalAlignment="Top" FontSize="24" Width="304"/>
@@ -62,6 +50,43 @@
         </Button>
         <ListView HorizontalAlignment="Left" Height="340" Margin="1474,579,0,0" VerticalAlignment="Top" Width="414" ItemsSource="{Binding OverViewList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <ListView HorizontalAlignment="Left" Height="229" Margin="1057,579,0,0" VerticalAlignment="Top" Width="375" ItemsSource="{Binding CustomerList}"/>
+        <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
+            <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Opret Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <AppBarButton Icon="Home" Label="" HorizontalAlignment="Right">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </GridView>
 
     </Grid>
 </Page>
