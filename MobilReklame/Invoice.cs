@@ -46,14 +46,14 @@ namespace MobilReklame
         #endregion
 
         #region Methods
-        public string getOffer
-        {
-        }
+     //   public string getOffer
+       // {
+        //}
 
-        public string Customer
-        {
+       // public string Customer
+       // {
             
-        }
+       // }
         #endregion
 
         

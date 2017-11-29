@@ -46,10 +46,10 @@ namespace MobilReklame
             OfferToOrder = new Offer(ViewProductName);
         }
 
-        public void CreateInvoice()
-        {
-            InvoiceToOrder = new Invoice();
-        }
+      //  public void CreateInvoice()
+      //  {
+       //     InvoiceToOrder = new Invoice();
+       // }
 
         public void CreateCustomer()
         {
@@ -61,15 +61,15 @@ namespace MobilReklame
             
         }
 
-        public ShowOffer()
-        {
-            return;
-        }
+      //  public ShowOffer()
+       // {
+         
+       // }
 
-        public ShowInvoice()
-        {
-            return;
-        }
+       // public ShowInvoice()
+        //{
+            
+        //}
 
         public void EndOrder()
         {
