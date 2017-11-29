@@ -69,6 +69,14 @@ namespace MobilReklame
             Cvr = cvr;
         }
         #endregion
-       
+
+        #region Customer ToString
+
+        public override string ToString()
+        {
+            return $"{nameof(CompanyName)}: {CompanyName}, {nameof(PhoneNumber)}: {PhoneNumber}, {nameof(Adress)}: {Adress}, {nameof(Email)}: {Email}, {nameof(Att)}: {Att}, {nameof(Cvr)}: {Cvr}";
+        }
+
+        #endregion
     }
 }
