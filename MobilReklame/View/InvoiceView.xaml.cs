@@ -24,7 +24,7 @@ namespace MobilReklame
     {
         public InvoiceView()
         {
-            this.InitializeComponent();
+            //this.InitializeComponent();
         }
     }
 }

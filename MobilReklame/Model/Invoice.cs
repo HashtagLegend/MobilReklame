@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace MobilReklame
 {
-   public class Invoice
+    public class Invoice
     {
         #region Backing Fields
+
         private int _invoidid;
         private DateTime _madeDateTime;
         private string _commentary;
+
         #endregion
 
         #region Propeties
+
         public int invoidid
         {
             get { return _invoidid; }
@@ -32,6 +35,7 @@ namespace MobilReklame
             get { return _commentary; }
             set { _commentary = value; }
         }
+
         #endregion
 
         #region Constructor
@@ -46,6 +50,7 @@ namespace MobilReklame
         #endregion
 
         #region Methods
+
         public void getOffer()
         {
 
@@ -54,9 +59,9 @@ namespace MobilReklame
         public void Customer()
         {
             
-       // }
+            
+        }
         #endregion
-
-        
     }
 }
+

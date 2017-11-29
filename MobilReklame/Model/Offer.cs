@@ -31,15 +31,15 @@ namespace MobilReklame
            ProductList.Add(new Product(name,quantity, price));
        }
 
-       public void CalculateTotalPrice()
-       {
-           foreach (Product product in ProductList)
-           {
-               TotalPrice = (product.Price*product.Quantity) + TotalPrice;
-           }
-           TotalPrice = TotalPrice * _vat;
-       }
+        public void CalculateTotalPrice()
+        {
+            foreach (Product product in ProductList)
+            {
+                //TotalPrice = (product.Price * product.Quantity) + TotalPrice;
+            }
+            TotalPrice = TotalPrice * _vat;
+        }
 
-     
+
     }
 }
