@@ -54,7 +54,7 @@ namespace MobilReklame
         public void Customer()
         {
             
-        }
+       // }
         #endregion
 
         

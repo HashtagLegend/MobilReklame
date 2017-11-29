@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="MobilReklame.FrontPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobilReklame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="Igangværende_Ordre" Content="Igangværende Ordre" HorizontalAlignment="Left" Height="376" Margin="85,222,0,0" VerticalAlignment="Top" Width="797" FontSize="36"/>
+        <Button x:Name="Igangværende_Ordre_Copy" Content="Opret Ordre" HorizontalAlignment="Left" Height="376" Margin="1027,222,0,0" VerticalAlignment="Top" Width="797" FontSize="36"/>
+        <Button x:Name="Igangværende_Ordre_Copy1" Content="Kundearkiv" HorizontalAlignment="Left" Height="376" Margin="85,668,0,0" VerticalAlignment="Top" Width="797" FontSize="36"/>
+        <Button x:Name="Igangværende_Ordre_Copy2" Content="Ordrearkiv" HorizontalAlignment="Left" Height="376" Margin="1027,668,0,0" VerticalAlignment="Top" Width="797" FontSize="36"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="376" Margin="85,222,0,0" VerticalAlignment="Top" Width="797"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="376" Margin="85,668,0,0" VerticalAlignment="Top" Width="797"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="376" Margin="1027,222,0,0" VerticalAlignment="Top" Width="797"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="376" Margin="1027,668,0,0" VerticalAlignment="Top" Width="797"/>
+        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF0D0101"/>
+
+    </Grid>
+</Page>
