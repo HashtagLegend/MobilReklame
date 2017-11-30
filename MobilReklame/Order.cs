@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Automation.Peers;
+using MobilReklame.Annotations;
 
 namespace MobilReklame
 {
     public class Order
     {
+        private int _colorCode = 1;
+
         #region Properties
 
         public string OrderName { get; set; }
@@ -23,8 +28,14 @@ namespace MobilReklame
         public string ViewEmail { get; set; }
         public string ViewATT { get; set; }
         public string ViewCVR { get; set; }
-   
 
+        public string Color { get; set; }
+
+        public int ColorCode
+        {
+            get { return _colorCode; }
+            set { _colorCode = value; }
+        }
 
         #endregion
 
@@ -35,6 +46,7 @@ namespace MobilReklame
             OrderName = orderName;
             OrderId = orderId;
             OrderSpecs = orderSpecs;
+            ColorChange();
         }
 
         #endregion
@@ -49,7 +61,7 @@ namespace MobilReklame
 
         public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
-            InvoiceToOrder = new Invoice(invoiceid,DateTime.Now, commentary);
+            InvoiceToOrder = new Invoice(invoiceid, DateTime.Now, commentary);
             double totalprice = this.OfferToOrder.TotalPrice;
 
         }
@@ -61,22 +73,22 @@ namespace MobilReklame
 
         public void AddOrderToOverViewList()
         {
-            
+
         }
 
         public void ShowOffer()
         {
-           
+
         }
 
         public void ShowInvoice()
         {
-            
+
         }
 
         public void EndOrder()
         {
-            
+
         }
 
 
@@ -87,6 +99,30 @@ namespace MobilReklame
         {
             return $"{nameof(OrderName)}: {OrderName}, {nameof(OrderId)}: {OrderId}, {nameof(OrderSpecs)}: {OrderSpecs}";
         }
+        #endregion
+
+        #region StatusColor
+
+        public void ColorChange()
+        {
+            if (ColorCode == 1)
+            {
+                Color = "Red";
+            }
+            if (ColorCode == 2)
+            {
+                Color = "Yellow";
+            }
+            if (ColorCode == 3)
+            {
+                Color = "Green";
+            }
+            if (ColorCode > 3)
+            {
+                ColorCode = 1;
+            }
+        }
+
         #endregion
     }
 }

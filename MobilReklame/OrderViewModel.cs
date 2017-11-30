@@ -29,6 +29,7 @@ namespace MobilReklame
             OverViewList = new ObservableCollection<Order>();
             OverViewList.Add(new Order("TestOrder", "001", "Specs"));
             OverViewList.Add(new Order("TestOrder2", "002", "Specs2"));
+            OverViewList.Add(new Order("TestOrder2", "002", "Specs2"));
         }
 
         public void CreateOrder()
@@ -46,7 +47,6 @@ namespace MobilReklame
         {
             order.CreateInvoice(InvoiceID, DateTime.Now, InvoiceCommentary);
         }
-
     
 
         #region PropertyChangeSupport

@@ -33,8 +33,8 @@
                                 </Grid.DataContext>
                                 <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1400">
                                     <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="1400">
-                                        <TextBox x:Name="OrderNameListTemplate" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Text="{Binding OverViewList[0].OrderName, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                                        <TextBox x:Name="OrderStatusListTemplate" Height="50" Text="Odre Status" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
+                                        <TextBox x:Name="OrderNameListTemplate" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" Text="{Binding OverViewList[0].OrderName, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                                        <TextBox x:Name="OrderStatusListTemplate" Height="50" Text="{Binding OverViewList[0].ColorCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="232" FontSize="24" Background="{Binding OverViewList[0].Color, Mode=TwoWay}"/>
                                         <TextBox x:Name="DeadlineListTemplate" Height="50" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
                                         <TextBox x:Name="LeveranceListTemplate" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
                                         <TextBox x:Name="KommentarListTemplate" Height="50" TextWrapping="Wrap" Text="Kommenter" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
@@ -48,6 +48,7 @@
 
             </Grid>
         </Grid>
+
     </Grid>
 </Page>
 
