@@ -47,7 +47,6 @@ namespace MobilReklame
             OverViewList = new ObservableCollection<Order>();
             OverViewList.Add(new Order("TestOrder", "001", "Specs"));
             OverViewList.Add(new Order("TestOrder2", "002", "Specs2"));
-
             CustomerList = new ObservableCollection<Customer>();
             CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
         }

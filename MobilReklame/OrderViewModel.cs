@@ -11,7 +11,7 @@ using MobilReklame.Annotations;
 
 namespace MobilReklame
 {
-   public class OrderViewModel : INotifyPropertyChanged
+   public partial class OrderViewModel : INotifyPropertyChanged
     {
 
         public Order SelectedOrder { get; set; }
