@@ -96,7 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersistencyServices\PersistencyServiceOrderCatalog.cs" />
-    <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="Singleton\OrderCatalogSingleton.cs" />
     <Compile Include="View\CreateOrderView.xaml.cs">
       <DependentUpon>CreateOrderView.xaml</DependentUpon>

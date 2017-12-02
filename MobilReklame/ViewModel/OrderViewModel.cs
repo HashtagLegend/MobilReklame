@@ -18,8 +18,7 @@ namespace MobilReklame
     {
         #region BackingField
 
-        private ICommand _save;
-        private ICommand _load;
+        
 
         #endregion
 
@@ -27,7 +26,7 @@ namespace MobilReklame
 
         public Order SelectedOrder { get; set; }
         public Order SaveSelected { get; set; }
-        //public ObservableCollection<Order> OverViewList { get; set; }
+        
         public ObservableCollection<Customer> CustomerList { get; set; }
         
         public string ViewOrderName { get; set; }
@@ -42,17 +41,7 @@ namespace MobilReklame
         public string InvoiceCommentary { get; set; }
 
 
-        //public ICommand Save
-        //{
-        //    get { return _save; }
-        //    set { _save = value; }
-        //}
-
-        //public ICommand Load
-        //{
-        //    get { return _load; }
-        //    set { _load = value; }
-        //}
+    
 
         public ObservableCollection<Order> OrderList { get; set; }
 
@@ -75,14 +64,10 @@ namespace MobilReklame
 
         public OrderViewModel()
         {
-            //Load = new RelayCommand.RelayCommand(LoadOrderList);
-            //Save = new RelayCommand.RelayCommand(SaveOrderList);
-
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
             //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
-
-
+            
             CustomerList = new ObservableCollection<Customer>();
             CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
         }
@@ -130,29 +115,7 @@ namespace MobilReklame
         }
 
         #endregion
-
-        #region SaveAndLoad Methods
-
-        //public async void LoadOrderList()
-        //{
-        //    var orderlist = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
-        //    //OrderList.Clear();
-        //    OrderCatalogSingleton.Instance.OrderCatalog.Clear();
-        //    foreach (Order order in OrderCatalogSingleton.Instance.OrderCatalog)
-        //    {
-        //        OrderCatalogSingleton.Instance.AddOrder(order);
-        //    }
-        //}
-
-        //public async void SaveOrderList()
-        //{
-        //    PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalogSingleton.Instance.OrderCatalog);
-        //}
-
-        #endregion
-
-
-
+       
         #region PropertyChangeSupport
 
         public event PropertyChangedEventHandler PropertyChanged;
