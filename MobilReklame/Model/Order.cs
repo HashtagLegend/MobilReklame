@@ -12,9 +12,8 @@ namespace MobilReklame
 {
     public class Order
     {
-        private int _colorCode = 1;
-
         #region Properties
+        private int _statusNumber = 1;
 
         public string OrderName { get; set; }
         public string OrderId { get; set; }
@@ -28,15 +27,9 @@ namespace MobilReklame
         public string ViewEmail { get; set; }
         public string ViewATT { get; set; }
         public string ViewCVR { get; set; }
-
         public string Color { get; set; }
-
-        public int ColorCode
-        {
-            get { return _colorCode; }
-            set { _colorCode = value; }
-        }
-
+        public int StatusNumber{ get { return _statusNumber; } set { _statusNumber = value; }}
+        public string Status { get; set; }
         #endregion
 
         #region Constructor
@@ -46,7 +39,7 @@ namespace MobilReklame
             OrderName = orderName;
             OrderId = orderId;
             OrderSpecs = orderSpecs;
-            ColorChange();
+            OrderStatus();
         }
 
         #endregion
@@ -100,25 +93,87 @@ namespace MobilReklame
         }
         #endregion
 
-        #region StatusColor
+        /// <summary>
+        /// Tilbud Rød
+        /// Produktion
+        /// Levering
+        /// Montering
+        /// Afslutning
+        /// </summary>
 
-        public void ColorChange()
+        #region StatusColor
+        public void StatusPlusOne()
         {
-            if (ColorCode == 1)
+            StatusNumber++;
+        }
+        public void OrderStatus()
+        {
+            switch (StatusNumber)
             {
-                Color = "Red";
-            }
-            if (ColorCode == 2)
-            {
-                Color = "Yellow";
-            }
-            if (ColorCode == 3)
-            {
-                Color = "Green";
-            }
-            if (ColorCode > 3)
-            {
-                ColorCode = 1;
+                case 1:
+                    Color = "Red";
+                    Status = "Tilbud";
+                    break;
+
+                case 2:
+                    Color = "Red";
+                    Status = "Produktion";
+                    break;
+
+                case 3:
+                    Color = "Yellow";
+                    Status = "Produktion";
+                    break;
+
+                case 4:
+                    Color = "Green";
+                    Status = "Produktion";
+                    break;
+
+                case 5:
+                    Color = "Red";
+                    Status = "Levering";
+                    break;
+
+                case 6:
+                    Color = "Yellow";
+                    Status = "Levering";
+                    break;
+
+                case 7:
+                    Color = "Green";
+                    Status = "Levering";
+                    break;
+
+                case 8:
+                    Color = "Red";
+                    Status = "Montering";
+                    break;
+
+                case 9:
+                    Color = "Yellow";
+                    Status = "Montering";
+                    break;
+
+                case 10:
+                    Color = "Green";
+                    Status = "Montering";
+                    break;
+
+                case 11:
+                    Color = "Red";
+                    Status = "Afslutning";
+                    break;
+
+                case 12:
+                    Color = "Yellow";
+                    Status = "Afslutning";
+                    break;
+
+                case 13:
+                    Color = "Green";
+                    Status = "Afslutning";
+                    break;
             }
         }
 
