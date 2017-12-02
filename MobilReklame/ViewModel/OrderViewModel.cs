@@ -7,17 +7,29 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MobilReklame.Annotations;
+using MobilReklame.PersistencyServices;
+using MobilReklame.Singleton;
 
 namespace MobilReklame
 {
    public class OrderViewModel : INotifyPropertyChanged
     {
+        #region BackingField
+
+        private ICommand _save;
+        private ICommand _load;
+
+        #endregion
+
+        #region Properties
 
         public Order SelectedOrder { get; set; }
         public Order SaveSelected { get; set; }
-        public ObservableCollection<Order> OverViewList { get; set; }
+        //public ObservableCollection<Order> OverViewList { get; set; }
         public ObservableCollection<Customer> CustomerList { get; set; }
+        
         public string ViewOrderName { get; set; }
         public string ViewOrderID { get; set; }
         public string ViewOrderSpecs { get; set; }
@@ -28,6 +40,25 @@ namespace MobilReklame
         public double TotalPrice { get; set; }
         public int InvoiceID { get; set; }
         public string InvoiceCommentary { get; set; }
+
+
+        //public ICommand Save
+        //{
+        //    get { return _save; }
+        //    set { _save = value; }
+        //}
+
+        //public ICommand Load
+        //{
+        //    get { return _load; }
+        //    set { _load = value; }
+        //}
+
+        public ObservableCollection<Order> OrderList { get; set; }
+
+        
+
+        #endregion
 
         #region CustomerProperties
 
@@ -44,13 +75,19 @@ namespace MobilReklame
 
         public OrderViewModel()
         {
-            OverViewList = new ObservableCollection<Order>();
-            OverViewList.Add(new Order("TestOrder", "001", "Specs"));
-            OverViewList.Add(new Order("TestOrder2", "002", "Specs2"));
+            //Load = new RelayCommand.RelayCommand(LoadOrderList);
+            //Save = new RelayCommand.RelayCommand(SaveOrderList);
+
+            //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
+            //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
+            OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
+
 
             CustomerList = new ObservableCollection<Customer>();
             CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
         }
+
+        #region Methods
 
         public void SaveSelectedWhenNavigate()
         {
@@ -59,7 +96,7 @@ namespace MobilReklame
 
         public void CreateOrder()
         {
-            OverViewList.Add(new Order(ViewOrderName,ViewOrderID,ViewOrderSpecs));
+            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewOrderSpecs);
             OnPropertyChanged();
         }
 
@@ -86,13 +123,35 @@ namespace MobilReklame
             order.CreateInvoice(InvoiceID, DateTime.Now, InvoiceCommentary);
         }
 
-       public void CreateCustomer()
+        public void CreateCustomer()
         {
             CustomerList.Add(new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR));
             OnPropertyChanged();
         }
 
-    
+        #endregion
+
+        #region SaveAndLoad Methods
+
+        //public async void LoadOrderList()
+        //{
+        //    var orderlist = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
+        //    //OrderList.Clear();
+        //    OrderCatalogSingleton.Instance.OrderCatalog.Clear();
+        //    foreach (Order order in OrderCatalogSingleton.Instance.OrderCatalog)
+        //    {
+        //        OrderCatalogSingleton.Instance.AddOrder(order);
+        //    }
+        //}
+
+        //public async void SaveOrderList()
+        //{
+        //    PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalogSingleton.Instance.OrderCatalog);
+        //}
+
+        #endregion
+
+
 
         #region PropertyChangeSupport
 
