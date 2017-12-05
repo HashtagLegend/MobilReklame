@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using MobilReklame.Annotations;
 using MobilReklame.PersistencyServices;
 using MobilReklame.Singleton;
@@ -27,25 +28,30 @@ namespace MobilReklame
         public Order SelectedOrder { get; set; }
         public Order SaveSelected { get; set; }
         
-        public ObservableCollection<Customer> CustomerList { get; set; }
-        
+        #region OrderProperties
+
         public string ViewOrderName { get; set; }
         public string ViewOrderID { get; set; }
-        public string ViewOrderSpecs { get; set; }
+        public string ViewCommentary { get; set; }
+        public DateTime ViewDeadline { get; set; }
+        public string ViewDelivery { get; set; }
+
+        #endregion
+
+        #region OfferProperties
+
         public string OfferName { get; set; }
         public string ProductName { get; set; }
         public int ProductQuantity { get; set; }
         public double ProductPrice { get; set; }
         public double TotalPrice { get; set; }
+
+        #endregion
+
+        #region InvoiceProperties
+
         public int InvoiceID { get; set; }
         public string InvoiceCommentary { get; set; }
-
-
-    
-
-        public ObservableCollection<Order> OrderList { get; set; }
-
-        
 
         #endregion
 
@@ -59,6 +65,14 @@ namespace MobilReklame
         public string ViewCVR { get; set; }
 
         #endregion
+
+
+        public ObservableCollection<Customer> CustomerList { get; set; }
+        public ObservableCollection<Order> OrderList { get; set; }
+        
+        #endregion
+
+       
 
 
 
@@ -81,7 +95,7 @@ namespace MobilReklame
 
         public void CreateOrder()
         {
-            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewOrderSpecs);
+            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewDeadline, ViewDelivery, ViewCommentary);
             OnPropertyChanged();
         }
 

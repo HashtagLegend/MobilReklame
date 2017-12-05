@@ -73,9 +73,9 @@
                                     <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="1400">
                                         <TextBox x:Name="OrderNameListTemplate" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" Text="{Binding OrderName, Mode=TwoWay}" HorizontalAlignment="Left"/>
                                         <TextBox x:Name="OrderStatusListTemplate" Height="50" Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="232" FontSize="24" Background="{Binding Color}"/>
-                                        <TextBox x:Name="DeadlineListTemplate" Height="50" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                                        <TextBox x:Name="LeveranceListTemplate" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                                        <TextBox x:Name="KommentarListTemplate" Height="50" TextWrapping="Wrap" Text="Kommenter" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
+                                        <TextBox x:Name="DeadlineListTemplate" Height="50" Text="{Binding Deadline, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
+                                        <TextBox x:Name="LeveranceListTemplate" Height="50" TextWrapping="Wrap" Text="{Binding Delivery, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
+                                        <TextBox x:Name="KommentarListTemplate" Height="50" TextWrapping="Wrap" Text="{Binding Commentary, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
                                         <Button x:Name="Åben_RedigerTemplate" Content="Åben/Rediger" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" BorderBrush="#66000000">
                                             <Interactivity:Interaction.Behaviors>
                                                 <Core:EventTriggerBehavior EventName="Click">

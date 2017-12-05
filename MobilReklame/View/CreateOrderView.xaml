@@ -30,8 +30,8 @@
         <TextBox HorizontalAlignment="Left" Margin="472,378,0,0" TextWrapping="Wrap" Text="{Binding ViewCVR, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="209" Height="32"/>
         <TextBlock HorizontalAlignment="Left" Margin="711,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.377,0.469" Text="Mail:" Height="23" Width="35"/>
         <TextBlock HorizontalAlignment="Left" Margin="711,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.377,0.469" Text="Adresse:" Height="23" Width="61"/>
-        <TextBox HorizontalAlignment="Left" Margin="785,343,0,0" TextWrapping="Wrap" Text="{Binding ViewEmail, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="208" Height="31"/>
-        <TextBox HorizontalAlignment="Left" Margin="785,378,0,0" TextWrapping="Wrap" Text="{Binding ViewAdress, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="208" Height="32"/>
+        <TextBox HorizontalAlignment="Left" Margin="795,341,0,0" TextWrapping="Wrap" Text="{Binding ViewEmail, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="208" Height="31"/>
+        <TextBox HorizontalAlignment="Left" Margin="795,377,0,0" TextWrapping="Wrap" Text="{Binding ViewAdress, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="208" Height="32"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,453,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.377,0.469" Text="Produkt:" Height="23" Width="61"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.377,0.469" Text="Mål:" Height="23" Width="31"/>
         <TextBox HorizontalAlignment="Left" Margin="170,444,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="14" Width="208" Height="31"/>
@@ -50,8 +50,6 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <ListView HorizontalAlignment="Left" Height="147" Margin="711,425,0,0" VerticalAlignment="Top" Width="557" ItemsSource="{Binding OrderList}" FontSize="14"/>
-        <ListView HorizontalAlignment="Left" Height="101" Margin="711,596,0,0" VerticalAlignment="Top" Width="282" ItemsSource="{Binding CustomerList}" FontSize="14"/>
         <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
             <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
@@ -88,21 +86,16 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
-            <AppBarButton Icon="Save" Label="Save">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:InvokeCommandAction Command="{Binding Save}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </AppBarButton>
-            <AppBarButton Icon="Import" Label="Load">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:InvokeCommandAction Command="{Binding Load}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </AppBarButton>
         </GridView>
+        <TextBlock x:Name="DeadlineTBl" HorizontalAlignment="Left" Margin="1025,254,0,0" TextWrapping="Wrap" Text="Deadline:" VerticalAlignment="Top" FontSize="14" Height="23" Width="81"/>
+        <TextBlock x:Name="DeliveryTBl" HorizontalAlignment="Left" Margin="413,254,0,0" TextWrapping="Wrap" Text="Levering:" VerticalAlignment="Top" FontSize="14" Height="23" Width="55" RenderTransformOrigin="0.245,0.717"/>
+        <TextBox HorizontalAlignment="Left" Margin="473,245,0,0" TextWrapping="Wrap" Text="{Binding ViewDelivery, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="209" Height="67"/>
+        <TextBlock x:Name="CommentaryTBl" HorizontalAlignment="Left" Margin="711,254,0,0" TextWrapping="Wrap" Text="Kommentar:" VerticalAlignment="Top" FontSize="14" Height="23" Width="79" RenderTransformOrigin="0.245,0.717"/>
+        <TextBox HorizontalAlignment="Left" Margin="795,245,0,0" TextWrapping="Wrap" Text="{Binding ViewCommentary, Mode=TwoWay}" VerticalAlignment="Top" FontSize="14" Width="208" Height="67" RenderTransformOrigin="1.026,0.604"/>
+        <CalendarDatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="1106,248,0,0" VerticalAlignment="Top" PlaceholderText="Vælg dato" />
+        <ListView HorizontalAlignment="Left" Height="100" Margin="413,545,0,0" VerticalAlignment="Top" Width="841" ItemsSource="{Binding OrderList}"/>
+        <DatePicker HorizontalAlignment="Left" Margin="1106,312,0,0" VerticalAlignment="Top" Date="{Binding ViewDeadline.Date, Mode=OneWay}"/>
+        <TextBox HorizontalAlignment="Left" Margin="1223,248,0,0" TextWrapping="Wrap" Text="{Binding ElementName=DatePicker}" VerticalAlignment="Top" Width="103" Height="32"/>
 
     </Grid>
 </Page>

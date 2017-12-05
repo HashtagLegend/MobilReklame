@@ -9,28 +9,28 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="Igangværende_Ordre" Content="Igangværende Ordre" HorizontalAlignment="Left" Height="376" Margin="85,222,0,0" VerticalAlignment="Top" Width="797" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
+        <Button x:Name="Igangværende_Ordre" Content="Igangværende Ordre" HorizontalAlignment="Left" Height="264" Margin="85,222,0,0" VerticalAlignment="Top" Width="573" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Igangværende_Ordre_Copy" Content="Opret Ordre" HorizontalAlignment="Left" Height="376" Margin="1027,222,0,0" VerticalAlignment="Top" Width="797" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
+        <Button x:Name="Igangværende_Ordre_Copy" Content="Opret Ordre" HorizontalAlignment="Left" Height="264" Margin="713,222,0,0" VerticalAlignment="Top" Width="573" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Igangværende_Ordre_Copy1" Content="Kundearkiv" HorizontalAlignment="Left" Height="376" Margin="85,668,0,0" VerticalAlignment="Top" Width="797" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
+        <Button x:Name="Igangværende_Ordre_Copy1" Content="Kundearkiv" HorizontalAlignment="Left" Height="264" Margin="85,530,0,0" VerticalAlignment="Top" Width="573" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Igangværende_Ordre_Copy2" Content="Ordrearkiv" HorizontalAlignment="Left" Height="376" Margin="1027,668,0,0" VerticalAlignment="Top" Width="797" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
+        <Button x:Name="Igangværende_Ordre_Copy2" Content="Ordrearkiv" HorizontalAlignment="Left" Height="264" Margin="713,530,0,0" VerticalAlignment="Top" Width="573" FontSize="36" Background="#FF44C2F1" BorderBrush="#FF0A0C0E">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction/>

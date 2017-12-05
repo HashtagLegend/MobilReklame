@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using MobilReklame.PersistencyServices;
 
 namespace MobilReklame.Singleton
@@ -26,9 +27,9 @@ namespace MobilReklame.Singleton
             LoadOrderCatalogAsync();
         }
 
-        public void AddOrder(string orderName, string orderId, string orderSpecs)
+        public void AddOrder(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
         {
-            OrderCatalog.Add(new Order(orderName, orderId, orderSpecs));
+            OrderCatalog.Add(new Order(orderName, orderId, deadline, delivery, commentary));
             PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
@@ -50,7 +51,7 @@ namespace MobilReklame.Singleton
                 }
             else
                 {
-                    OrderCatalog.Add(new Order("Vikingeborg", "001", "Specs001"));
+                    OrderCatalog.Add(new Order("Vikingeborg", "001", DateTime.Now, "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
                 }
         }
         
