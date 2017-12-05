@@ -77,12 +77,12 @@
                                         <TextBox x:Name="LeveranceListTemplate" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
                                         <TextBox x:Name="KommentarListTemplate" Height="50" TextWrapping="Wrap" Text="Kommenter" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
                                         <Button x:Name="Åben_RedigerTemplate" Content="Åben/Rediger" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" BorderBrush="#66000000">
-                                            <Interactivity:Interaction.Behaviors>
-                                                <Core:EventTriggerBehavior EventName="Click">
-                                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="StatusPlusOne"/>
-                                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="OrderStatus"/>
-                                                </Core:EventTriggerBehavior>
-                                            </Interactivity:Interaction.Behaviors>
+                                            <Button.Flyout>
+                                                <MenuFlyout>
+                                                    <MenuFlyoutItem Text="Rediger" Width="225"/>
+                                                    <MenuFlyoutItem Text="Åben" Width="225"/>
+                                                </MenuFlyout>
+                                            </Button.Flyout>
                                         </Button>
                                     </StackPanel>
                                 </StackPanel>
