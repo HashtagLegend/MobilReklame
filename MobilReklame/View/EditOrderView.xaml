@@ -103,31 +103,119 @@
                 <TextBox Text="" HorizontalAlignment="Left" Height="180" Margin="450,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
             </Grid>
             <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="750,0,0,0" BorderBrush="Black" BorderThickness="1">
-                <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24"/>
-                <Button Content="Vis Tilbud" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,50,0,0" BorderBrush="Black" BorderThickness="1"/>
+                <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Vis Tilbud" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,50,0,0" BorderBrush="Black" BorderThickness="1">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
                 <TextBlock Width="50" Height="35" Text="Fase:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,165"/>
-                <Button Content="Tilbud" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,200" HorizontalContentAlignment="Left">
+                <Button Content="Tilbud" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,200" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Text="Tilbud" Width="475"/>
-                            <MenuFlyoutItem Text="Produktion"/>
-                            <MenuFlyoutItem Text="Levering"/>
-                            <MenuFlyoutItem Text="Montering"/>
-                            <MenuFlyoutItem Text="Afslutning"/>
+                            <MenuFlyoutItem Text="Tilbud" Width="475" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Produktion" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Levering" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Montering" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Afslutning" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
                     </MenuFlyout>
                     </Button.Flyout>
                 </Button>
                 <TextBlock Width="100" Height="35" Text="Status:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,300"/>
-                <Button Content="Ikke startet" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,335" HorizontalContentAlignment="Left">
+                <Button Content="Ikke startet" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,335" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Text="Ikke startet" Width="475"/>
-                            <MenuFlyoutItem Text="Igang"/>
-                            <MenuFlyoutItem Text="Færdig"/>
+                            <MenuFlyoutItem Text="Ikke startet" Width="475" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Igang" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Færdig" FontSize="24">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Click">
+                                        <core:CallMethodAction/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                            </MenuFlyoutItem>
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
-                
+
+                <Button Content="Opret Faktura" HorizontalAlignment="Left" Height="75" Margin="51,465,0,0" VerticalAlignment="Top" Width="400" BorderBrush="Black" BorderThickness="1" FontSize="24">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Vis Faktura" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,465,0,0" BorderBrush="Black" BorderThickness="1" >
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Afslut Ordre" HorizontalAlignment="Left" Height="75" Margin="51,600,0,0" VerticalAlignment="Top" Width="400" BorderBrush="Black" BorderThickness="1" FontSize="24">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Slet Ordre" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,600,0,0" BorderBrush="Black" BorderThickness="1">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
             </Grid>
         </Grid>
     </Grid>
