@@ -101,6 +101,9 @@
       <DependentUpon>CreateOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="View\EditOrderView.xaml.cs">
+      <DependentUpon>EditOrderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FrontPageView.xaml.cs">
       <DependentUpon>FrontPageView.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\EditOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FrontPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

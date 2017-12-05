@@ -7,12 +7,12 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="MobilReklame.OrderOverviewView"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <local:OrderViewModel/>
+    </Page.DataContext>
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Grid.DataContext>
-            <local:OrderViewModel/>
-        </Grid.DataContext>
+        
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
         <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
         <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
@@ -68,7 +68,7 @@
                 <ListView HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1420" ItemsSource="{Binding OrderList}" Margin="-12,0,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="50" Width="1400" DataContext="{Binding}">
+                            <Grid Height="50" Width="1400">
                                 <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1400">
                                     <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="1400">
                                         <TextBox x:Name="OrderNameListTemplate" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" Text="{Binding OrderName, Mode=TwoWay}" HorizontalAlignment="Left"/>

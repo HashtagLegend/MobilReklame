@@ -62,15 +62,15 @@ namespace MobilReklame
 
 
 
-        public OrderViewModel()
-        {
-            //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
-            //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
-            OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
+        //public OrderViewModel()
+        //{
+        //    //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
+        //    //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
+        //    OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
             
-            CustomerList = new ObservableCollection<Customer>();
-            CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
-        }
+        //    CustomerList = new ObservableCollection<Customer>();
+        //    CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
+        //}
 
         #region Methods
 
@@ -79,11 +79,11 @@ namespace MobilReklame
             SaveSelected = SelectedOrder;
         }
 
-        public void CreateOrder()
-        {
-            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewOrderSpecs);
-            OnPropertyChanged();
-        }
+        //public void CreateOrder()
+        //{
+        //    OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewOrderSpecs);
+        //    OnPropertyChanged();
+        //}
 
         public void CreateOffer()
         {
