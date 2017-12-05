@@ -15,26 +15,26 @@ namespace MobilReklame
     {
         private static string JsonFileName = "CustomerArchive.json";
 
-        public static async void SaveCustomerArchiveAsJsonAsync(ObservableCollection<CustomerArchiveSingleton> customerarchive)
+        public static async void SaveCustomerArchiveAsJsonAsync(ObservableCollection<Customer> customerArchive)
         {
-            string customerarchiveJsonString = JsonConvert.SerializeObject(customerarchive);
+            string customerarchiveJsonString = JsonConvert.SerializeObject(customerArchive);
             SerializeCustomerArchiveFileAsync(customerarchiveJsonString, JsonFileName);
         }
 
-        public static async Task<List<CustomerArchiveSingleton>> LoadCustomerArchiveFromJsonAsync()
+        public static async Task<List<Customer>> LoadCustomerArchiveFromJsonAsync()
         {
-            string customerarchiveJsonString = await DeserializeCustomerArchiveFileAsync(JsonFileName);
-            if (customerarchiveJsonString != null)
-                return (List<CustomerArchiveSingleton>)JsonConvert.DeserializeObject(customerarchiveJsonString, typeof(List<CustomerArchiveSingleton>));
+            string customerArchiveJsonString = await DeserializeCustomerArchiveFileAsync(JsonFileName);
+            if (customerArchiveJsonString != null)
+                return (List<Customer>)JsonConvert.DeserializeObject(customerArchiveJsonString, typeof(List<Customer>));
             return null;
         }
 
 
 
-        private static async void SerializeCustomerArchiveFileAsync(string customerarchiveJsonString, string fileName)
+        private static async void SerializeCustomerArchiveFileAsync(string customerArchiveJsonString, string fileName)
         {
             StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(localFile, customerarchiveJsonString);
+            await FileIO.WriteTextAsync(localFile, customerArchiveJsonString);
         }
 
 

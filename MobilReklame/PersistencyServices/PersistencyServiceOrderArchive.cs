@@ -15,17 +15,17 @@ namespace MobilReklame
     {
         private static string JsonFileName = "OrderArchive.json";
 
-        public static async void SaveOrderArchiveAsJsonAsync(ObservableCollection<OrderArchiveSingleton> orderarchive)
+        public static async void SaveOrderArchiveAsJsonAsync(ObservableCollection<Order> orderarchive)
         {
             string orderarchiveJsonString = JsonConvert.SerializeObject(orderarchive);
             SerializeOrderArchiveFileAsync(orderarchiveJsonString, JsonFileName);
         }
 
-        public static async Task<List<OrderArchiveSingleton>> LoadOrderArchiveFromJsonAsync()
+        public static async Task<List<Order>> LoadOrderArchiveFromJsonAsync()
         {
             string orderarchiveJsonString = await DeserializeOrderArchiveFileAsync(JsonFileName);
             if (orderarchiveJsonString != null)
-                return (List<OrderArchiveSingleton>)JsonConvert.DeserializeObject(orderarchiveJsonString, typeof(List<OrderArchiveSingleton>));
+                return (List<Order>)JsonConvert.DeserializeObject(orderarchiveJsonString, typeof(List<Order>));
             return null;
         }
 

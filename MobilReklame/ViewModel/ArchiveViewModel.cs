@@ -30,41 +30,42 @@ namespace MobilReklame
         #region Constructor
         public ArchiveViewModel()
         {
-           CustomerArchive = CustomerArchiveSingleton.Instance.Customerarchive;
-           OrderArchive = OrderArchiveSingleton.Instance.Orderarchive;
+           CustomerArchive = CustomerArchiveSingleton.Instance.CustomerArchive;
+           OrderArchive = OrderArchiveSingleton.Instance.OrderArchive;
+           CustomerArchive.Add(new Customer("ffddfd","sdsds","dsdsd","sdsds","dsdsd","dsds"));
         }
         #endregion
 
         #region Methods
-        public async void SaveCustomerArchive()
-        {
-            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchiveSingleton.Instance.Customerarchive);
-        }
+        //public async void SaveCustomerArchive()
+        //{
+        //    PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchiveSingleton.Instance.CustomerArchive);
+        //}
 
-        public async void LoadCustomerArchive()
-        {
-            var customerarchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
-            CustomerArchiveSingleton.Instance.Customerarchive.Clear();
-            foreach (var customer in customerarchive)
-            {
-                CustomerArchiveSingleton.Instance.Customerarchive.Add(customer);
-            }
-        }
+        //public async void LoadCustomerArchive()
+        //{
+        //    var CustomerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
+        //    CustomerArchiveSingleton.Instance.CustomerArchive.Clear();
+        //    foreach (var customer in CustomerArchive)
+        //    {
+        //        CustomerArchiveSingleton.Instance.CustomerArchive.Add(customer);
+        //    }
+        //}
 
-        public async void SaveOrderArchive()
-        {
-            PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);
-        }
+        //public async void SaveOrderArchive()
+        //{
+        //    PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);
+        //}
 
-        public async void LoadOrderArchive()
-        {
-            var orderarchive = await PersistencyServiceOrderArchive.LoadOrderArchiveFromJsonAsync();
-            OrderArchive.Clear();
-            foreach (var order in orderarchive)
-            {
-                OrderArchive.Add(order);
-            }
-        }
+        //public async void LoadOrderArchive()
+        //{
+        //    var orderarchive = await PersistencyServiceOrderArchive.LoadOrderArchiveFromJsonAsync();
+        //    OrderArchive.Clear();
+        //    foreach (var order in orderarchive)
+        //    {
+        //        OrderArchive.Add(order);
+        //    }
+        //}
         #endregion
     }
 }

@@ -15,7 +15,7 @@ namespace MobilReklame
         #endregion
 
         #region Properties
-        public ObservableCollection<Customer> Customerarchive { get;}
+        public ObservableCollection<Customer> CustomerArchive { get;}
 
         public static CustomerArchiveSingleton Instance
         {
@@ -33,19 +33,40 @@ namespace MobilReklame
         #region Constuctor
         public CustomerArchiveSingleton()
         {
-            Customerarchive = new ObservableCollection<Customer>();
+            CustomerArchive = new ObservableCollection<Customer>();
+            CustomerArchive.Clear();
+            LoadCustomerArchive();
         }
         #endregion
 
         #region Methods
         public void AddCustomer(string companyName, string phoneNumber, string adress, string email, string att, string cvr)
         {
-            Customerarchive.Add(new Customer(companyName, phoneNumber, adress, email, att, cvr));
+            CustomerArchive.Add(new Customer(companyName, phoneNumber, adress, email, att, cvr));
+            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
         }
 
         public void AddCustomer(Customer customer)
         {
-            Customerarchive.Add(customer);
+            CustomerArchive.Add(customer);
+            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
+        }
+
+        public async void LoadCustomerArchive()
+        {
+            var customerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
+            CustomerArchive.Clear();
+            if (CustomerArchive != null)
+            {
+                foreach (var customer in customerArchive)
+                {
+                    CustomerArchive.Add(customer);
+                }
+            }
+            else
+            {
+                CustomerArchive.Add(new Customer("Google", "12345678", "Nygade 12", "Test@Test.Test", "Søren","583567347648"));
+            }
         }
         #endregion
     }

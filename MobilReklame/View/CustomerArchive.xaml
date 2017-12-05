@@ -11,9 +11,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="398" Margin="443,205,0,0" VerticalAlignment="Top" Width="740" ItemsSource="{Binding CustomerArchive}">
-            <ListView Height="100" Width="100"/>
-        </ListView>
+        <ListView HorizontalAlignment="Left" Height="318" Margin="373,235,0,0" VerticalAlignment="Top" Width="1200" ItemsSource="{Binding CustomerArchive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Page>

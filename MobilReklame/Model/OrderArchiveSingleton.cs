@@ -14,7 +14,7 @@ namespace MobilReklame
         #endregion
 
         #region Properties
-        public ObservableCollection<Order> Orderarchive { get; }
+        public ObservableCollection<Order> OrderArchive { get; }
 
         public static OrderArchiveSingleton Instance
         {
@@ -32,7 +32,7 @@ namespace MobilReklame
         #region Constructor
         public OrderArchiveSingleton()
         {
-            Orderarchive = new ObservableCollection<Order>();
+            OrderArchive = new ObservableCollection<Order>();
         }
         #endregion
     }
