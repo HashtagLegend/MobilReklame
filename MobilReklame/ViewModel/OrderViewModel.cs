@@ -74,12 +74,9 @@ namespace MobilReklame
 
        
 
-
-
         public OrderViewModel()
         {
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
-            //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
             
             CustomerList = new ObservableCollection<Customer>();
@@ -124,7 +121,14 @@ namespace MobilReklame
 
         public void CreateCustomer()
         {
-            CustomerList.Add(new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR));
+           CustomerArchiveSingleton.Instance.AddCustomer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
+           OnPropertyChanged();
+        }
+
+        public void MoveOrderToOrderArchive()
+        {
+            OrderCatalogSingleton.Instance.RemoveOrder(SelectedOrder);
+            OrderArchiveSingleton.Instance.AddOrderToArchive(SelectedOrder);
             OnPropertyChanged();
         }
 

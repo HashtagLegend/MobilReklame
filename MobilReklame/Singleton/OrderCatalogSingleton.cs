@@ -39,13 +39,19 @@ namespace MobilReklame.Singleton
             PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
+        public void RemoveOrder(Order orderToBeRemoved)
+        {
+            OrderCatalog.Remove(orderToBeRemoved);
+            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+        }
+
         public async void LoadOrderCatalogAsync()
         {
-            var orders = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
+            var orderCatalog = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
             OrderCatalog.Clear();
             
-            if(OrderCatalog != null)
-                foreach (var orderObjects in orders)
+            if(orderCatalog != null)
+                foreach (var orderObjects in orderCatalog)
                 {
                     OrderCatalog.Add(orderObjects);
                 }

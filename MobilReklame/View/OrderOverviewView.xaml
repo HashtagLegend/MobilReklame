@@ -51,48 +51,15 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
+            <Button Content="Flyt til OrdreArkiv" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.531">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction MethodName="MoveOrderToOrderArchive" TargetObject="{Binding Mode=OneWay}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
         </GridView>
-
-        <Grid x:Name="GridUnderBanner" HorizontalAlignment="Left" Height="772" Margin="0,228,0,0" VerticalAlignment="Top" Width="1500">
-            <Grid x:Name="OverviewGrid" HorizontalAlignment="Left" Height="672" Margin="50,50,50,50" VerticalAlignment="Top" Width="1392">
-                <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Ordre navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                <TextBox x:Name="OrdreStatusList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Ordre Status" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="232,0,0,0" Background="#668F8F8F"/>
-                <TextBox x:Name="DeadlineList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="464,0,0,0" Background="#668F8F8F"/>
-                <TextBox x:Name="LeveranceList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="696,0,0,0" Background="#668F8F8F"/>
-                <TextBox x:Name="KommentarList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="928,0,0,0" Background="#668F8F8F"/>
-                <TextBox x:Name="EmptyList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1160,0,0,0" Background="#668F8F8F"/>
-            </Grid>
-
-
-            <Grid x:Name="ListViewGrid" HorizontalAlignment="Left" Height="672" Margin="50,100,0,0" VerticalAlignment="Top" Width="1392">
-                <ListView HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1420" ItemsSource="{Binding OrderList}" Margin="-12,0,0,0">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="50" Width="1400" DataContext="{Binding}">
-                                <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1400">
-                                    <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="1400">
-                                        <TextBox x:Name="OrderNameListTemplate" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" Text="{Binding OrderName, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                                        <TextBox x:Name="OrderStatusListTemplate" Height="50" Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="232" FontSize="24" Background="{Binding Color}"/>
-                                        <TextBox x:Name="DeadlineListTemplate" Height="50" Text="{Binding Deadline, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                                        <TextBox x:Name="LeveranceListTemplate" Height="50" TextWrapping="Wrap" Text="{Binding Delivery, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                                        <TextBox x:Name="KommentarListTemplate" Height="50" TextWrapping="Wrap" Text="{Binding Commentary, Mode=TwoWay}" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F"/>
-                                        <Button x:Name="Åben_RedigerTemplate" Content="Åben/Rediger" Height="50" VerticalAlignment="Top" Width="232" FontSize="24" Background="#668F8F8F" BorderBrush="#66000000">
-                                            <Interactivity:Interaction.Behaviors>
-                                                <Core:EventTriggerBehavior EventName="Click">
-                                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="StatusPlusOne"/>
-                                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="OrderStatus"/>
-                                                </Core:EventTriggerBehavior>
-                                            </Interactivity:Interaction.Behaviors>
-                                        </Button>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-            </Grid>
-        </Grid>
+        <ListView HorizontalAlignment="Left" Height="324" Margin="176,319,0,0" VerticalAlignment="Top" Width="1024" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder}"/>
 
     </Grid>
 </Page>

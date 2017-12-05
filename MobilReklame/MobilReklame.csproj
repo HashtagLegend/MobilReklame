@@ -95,6 +95,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersistencyServices\PersistencyServiceOrderArchive.cs" />
+    <Compile Include="PersistencyServices\PersistencyServiceCustomerArchive.cs" />
+    <Compile Include="View\OrderArchive.xaml.cs">
+      <DependentUpon>OrderArchive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerArchive.xaml.cs">
+      <DependentUpon>CustomerArchive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ArchiveViewModel.cs" />
+    <Compile Include="Singleton\CustomerArchiveSingleton.cs" />
+    <Compile Include="Singleton\OrderArchiveSingleton.cs" />
     <Compile Include="PersistencyServices\PersistencyServiceOrderCatalog.cs" />
     <Compile Include="Singleton\OrderCatalogSingleton.cs" />
     <Compile Include="View\CreateOrderView.xaml.cs">
@@ -147,6 +158,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\OrderArchive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomerArchive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FrontPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
