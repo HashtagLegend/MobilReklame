@@ -15,9 +15,9 @@ namespace MobilReklame
     {
         private static string JsonFileName = "OrderArchive.json";
 
-        public static async void SaveOrderArchiveAsJsonAsync(ObservableCollection<Order> orderarchive)
+        public static async void SaveOrderArchiveAsJsonAsync(ObservableCollection<Order> orderArchive)
         {
-            string orderarchiveJsonString = JsonConvert.SerializeObject(orderarchive);
+            string orderarchiveJsonString = JsonConvert.SerializeObject(orderArchive);
             SerializeOrderArchiveFileAsync(orderarchiveJsonString, JsonFileName);
         }
 

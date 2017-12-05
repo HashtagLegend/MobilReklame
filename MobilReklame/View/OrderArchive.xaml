@@ -12,7 +12,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="531" Margin="336,282,0,0" VerticalAlignment="Top" Width="1092" ItemsSource="{Binding OrderArchive}" SelectedItem="{Binding SelectedOrder}"/>
+        <ListView HorizontalAlignment="Left" Height="627" Margin="336,282,0,0" VerticalAlignment="Top" Width="1092" ItemsSource="{Binding OrderArchive}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"/>
         <AppBarButton HorizontalAlignment="Left" Icon="Home" Label="Home" Margin="126,118,0,0" VerticalAlignment="Top">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">

@@ -127,8 +127,8 @@ namespace MobilReklame
 
         public void MoveOrderToOrderArchive()
         {
-            OrderCatalogSingleton.Instance.RemoveOrder(SelectedOrder);
             OrderArchiveSingleton.Instance.AddOrderToArchive(SelectedOrder);
+            OrderCatalogSingleton.Instance.RemoveOrder(SelectedOrder);
             OnPropertyChanged();
         }
 

@@ -68,14 +68,14 @@
             <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderArchive"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
             <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.CustomerArchive"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>

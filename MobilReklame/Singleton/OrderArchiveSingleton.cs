@@ -35,9 +35,9 @@ public OrderArchiveSingleton()
         }
         #endregion
 
-        public void AddOrderToArchive(string orderName, string orderID, DateTime deadline, string delivery, string commentary)
+        public void AddOrderToArchive(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
         {
-            OrderArchive.Add(new Order(orderName, orderID, deadline, delivery, commentary));
+            OrderArchive.Add(new Order(orderName, orderId, deadline, delivery, commentary));
             PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);
         }
 
@@ -59,9 +59,9 @@ public OrderArchiveSingleton()
             OrderArchive.Clear();
 
             if (orderArchive != null)
-                foreach (var orderObjects in orderArchive)
+                foreach (var orders in orderArchive)
                 {
-                    OrderArchive.Add(orderObjects);
+                    OrderArchive.Add(orders);
                 }
             else
             {

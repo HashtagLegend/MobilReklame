@@ -7,6 +7,18 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="MobilReklame.OrderOverviewView"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="OrderOverViewDataTemplate(Use this one)">
+            <StackPanel Background="White" Orientation="Horizontal">
+
+                <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" BorderBrush="#FF050505" Width="199" IsReadOnly="True"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding OrderId}" FontSize="24" BorderBrush="#FF050505" Width="200" IsReadOnly="True"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Deadline}" FontSize="24" BorderBrush="#FF050505" Width="200" IsReadOnly="True"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" BorderBrush="#FF050505" Width="400" IsReadOnly="True"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" BorderBrush="#FF050505" Width="400" IsReadOnly="True"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -33,14 +45,14 @@
             <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderArchive"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
             <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.CustomerArchive"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
@@ -59,7 +71,18 @@
                 </Interactivity:Interaction.Behaviors>
             </Button>
         </GridView>
-        <ListView HorizontalAlignment="Left" Height="324" Margin="176,319,0,0" VerticalAlignment="Top" Width="1024" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder}"/>
+        <Grid HorizontalAlignment="Left" Height="702" Margin="70,282,0,0" VerticalAlignment="Top" Width="1538">
+            <ListView HorizontalAlignment="Left" Height="556" VerticalAlignment="Top" Width="1528" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" ItemTemplate="{StaticResource OrderOverViewDataTemplate(Use this one)}" Margin="0,50,0,0"/>
+            <Grid HorizontalAlignment="Left" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="1518">
+                <StackPanel HorizontalAlignment="Left" Height="38" Margin="0,10,0,0" VerticalAlignment="Top" Width="1508" Orientation="Horizontal" Background="#FF1CB0DF">
+                    <TextBlock TextWrapping="Wrap" Text="Ordre Navn" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock TextWrapping="Wrap" Text="Ordre ID" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock TextWrapping="Wrap" Text="Deadline" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock TextWrapping="Wrap" Text="Levering" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock TextWrapping="Wrap" Text="Kommentar" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Page>
