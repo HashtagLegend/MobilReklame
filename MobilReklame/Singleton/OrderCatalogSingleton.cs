@@ -19,41 +19,42 @@ namespace MobilReklame.Singleton
         }
 
         public ObservableCollection<Order> OrderCatalog { get; }
+        public Order SelectedOrderWhenNavigate { get; set; }
 
         private OrderCatalogSingleton()
         {
             OrderCatalog = new ObservableCollection<Order>();
             OrderCatalog.Clear();
-            LoadOrderCatalogAsync();
+            //LoadOrderCatalogAsync();
         }
 
         public void AddOrder(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
         {
             OrderCatalog.Add(new Order(orderName, orderId, deadline, delivery, commentary));
-            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+            //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
         public void AddOrder(Order order)
         {
             OrderCatalog.Add(order);
-            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+            //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
-        public async void LoadOrderCatalogAsync()
-        {
-            var orders = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
-            OrderCatalog.Clear();
+        //public async void LoadOrderCatalogAsync()
+        //{
+        //    var orders = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
+        //    OrderCatalog.Clear();
             
-            if(OrderCatalog != null)
-                foreach (var orderObjects in OrderCatalog)
-                {
-                    OrderCatalog.Add(orderObjects);
-                }
-            else
-                {
-                    OrderCatalog.Add(new Order("Vikingeborg", "001", DateTime.Now, "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
-                }
-        }
+        //    if(OrderCatalog != null)
+        //        foreach (var orderObjects in orders)
+        //        {
+        //            OrderCatalog.Add(orderObjects);
+        //        }
+        //    else
+        //        {
+        //            OrderCatalog.Add(new Order("Vikingeborg", "001", DateTime.Now, "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
+        //        }
+        //}
         
     }
 }

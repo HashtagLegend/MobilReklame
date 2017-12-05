@@ -24,9 +24,6 @@ namespace MobilReklame
         #endregion
 
         #region Properties
-
-        public Order SelectedOrder { get; set; }
-        public Order SaveSelected { get; set; }
         
         #region OrderProperties
 
@@ -36,6 +33,7 @@ namespace MobilReklame
         public DateTime ViewDeadline { get; set; }
         public string ViewDelivery { get; set; }
 
+        public Order SelectedOrder { get; set; }
         #endregion
 
         #region OfferProperties
@@ -81,17 +79,13 @@ namespace MobilReklame
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
             //OrderCatalogSingleton.Instance.AddOrder("Vikingeborg", "001", "Specs001");
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
-            
+            OrderList.Add(new Order("Vikingeborg", "001", DateTime.Now, "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
+
             CustomerList = new ObservableCollection<Customer>();
             CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
         }
 
         #region Methods
-
-        public void SaveSelectedWhenNavigate()
-        {
-            SaveSelected = SelectedOrder;
-        }
 
         public void CreateOrder()
         {
@@ -99,22 +93,19 @@ namespace MobilReklame
             OnPropertyChanged();
         }
 
-        public void CreateOffer()
+        public void SelectedOrderToNavigate()
         {
-            SaveSelected.CreateOffer();
+            OrderCatalogSingleton.Instance.SelectedOrderWhenNavigate = SelectedOrder;
         }
 
-        public void SetNameForOffer()
+        public void CreateOffer()
         {
-            SaveSelected.OfferToOrder.Name = OfferName;
+         
         }
 
         public void CreateProductsToOffer()
         {
-            SaveSelected.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
-            SaveSelected.OfferToOrder.CalculateTotalPrice();
-            TotalPrice = SaveSelected.OfferToOrder.TotalPrice;
-            OnPropertyChanged();
+
         }
 
         public void CreateInvoice(Order order)
