@@ -45,7 +45,7 @@ namespace MobilReklame.Singleton
             OrderCatalog.Clear();
             
             if(OrderCatalog != null)
-                foreach (var orderObjects in OrderCatalog)
+                foreach (var orderObjects in orders)
                 {
                     OrderCatalog.Add(orderObjects);
                 }
