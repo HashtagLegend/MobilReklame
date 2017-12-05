@@ -34,8 +34,8 @@ namespace MobilReklame
         public CustomerArchiveSingleton()
         {
             CustomerArchive = new ObservableCollection<Customer>();
-            CustomerArchive.Clear();
-            LoadCustomerArchive();
+            //CustomerArchive.Clear();
+            //LoadCustomerArchive();
         }
         #endregion
 
@@ -56,8 +56,8 @@ namespace MobilReklame
         {
             var customerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
             CustomerArchive.Clear();
-            if (CustomerArchive != null)
-            {
+            if (customerArchive != null)
+            { 
                 foreach (var customer in customerArchive)
                 {
                     CustomerArchive.Add(customer);
