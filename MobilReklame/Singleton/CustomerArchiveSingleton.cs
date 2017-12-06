@@ -35,8 +35,8 @@ namespace MobilReklame
         public CustomerArchiveSingleton()
         {
             CustomerArchive = new ObservableCollection<Customer>();
-            CustomerArchive.Clear();
-            LoadCustomerArchive();
+            //CustomerArchive.Clear();
+            //LoadCustomerArchive();
         }
         #endregion
 
@@ -44,37 +44,37 @@ namespace MobilReklame
         public void AddCustomer(string companyName, string phoneNumber, string adress, string email, string att, string cvr)
         {
             CustomerArchive.Add(new Customer(companyName, phoneNumber, adress, email, att, cvr));
-            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
+            //PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
         }
 
         public void AddCustomer(Customer customer)
         {
             CustomerArchive.Add(customer);
-            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
+            //PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
         }
 
         public void RemoveCustomer(Customer customerToBeRemoved)
         {
             CustomerArchive.Remove(customerToBeRemoved);
-            PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
+            //PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchive);
         }
         
-        public async void LoadCustomerArchive()
-        {
-            var customerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
-            CustomerArchive.Clear();
-            if (customerArchive != null)
-            {
-                foreach (var customer in customerArchive)
-                {
-                    CustomerArchive.Add(customer);
-                }
-            }
-            else
-            {
-                CustomerArchive.Add(new Customer("Google", "12345678", "Nygade 12", "Test@Test.Test", "Søren","583567347648"));
-            }
-        }
+        //public async void LoadCustomerArchive()
+        //{
+        //    var customerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
+        //    CustomerArchive.Clear();
+        //    if (customerArchive != null)
+        //    {
+        //        foreach (var customer in customerArchive)
+        //        {
+        //            CustomerArchive.Add(customer);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        CustomerArchive.Add(new Customer("Google", "12345678", "Nygade 12", "Test@Test.Test", "Søren","583567347648"));
+        //    }
+        //}
         #endregion
     }
 }

@@ -26,8 +26,6 @@ namespace MobilReklame
            CustomerArchive = CustomerArchiveSingleton.Instance.CustomerArchive;
            OrderArchive = OrderArchiveSingleton.Instance.OrderArchive;
 
-            //OrderArchive.Add(new Order("ArkivOrdre","004", DateTime.Now, "Nej", "Kommentar"));
-            //OrderArchive.Add(new Order("ArkivOrdre2", "005", DateTime.Now, "Nej", "Kommentar"));
         }
         #endregion
 
