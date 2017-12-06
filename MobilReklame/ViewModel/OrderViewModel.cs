@@ -38,6 +38,8 @@ namespace MobilReklame
         public string ViewCommentary { get; set; }
         public DateTime ViewDeadline { get; set; }
         public string ViewDelivery { get; set; }
+        public string ViewOrderStatus { get { return SavedOrder.Status; }}
+        public string ViewOrderFase { get { return SavedOrder.Fase; } }
 
         #endregion
 
@@ -141,6 +143,53 @@ namespace MobilReklame
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #endregion
+        #region Status
+        public void StatusTilbud()
+        {
+            SavedOrder.Status = "Tilbud";
+            OnPropertyChanged();
+
+        }
+        public void StatusProduktion()
+        {
+            SavedOrder.Status = "Produktion";
+            OnPropertyChanged();
+        }
+        public void StatusLevering()
+        {
+            SavedOrder.Status = "Levering";
+            OnPropertyChanged();
+        }
+        public void StatusMontering()
+        {
+            SavedOrder.Status = "Montering";
+            OnPropertyChanged();
+        }
+
+        public void StatusAfslutning()
+        {
+            SavedOrder.Status = "Afslutning";
+            OnPropertyChanged();
+        }
+        public void StatusRed()
+        {
+            SavedOrder.Color = "Red";
+            SavedOrder.Fase = "Ikke Startet";
+            OnPropertyChanged();
+        }
+        public void StatusYellow()
+        {
+            SavedOrder.Color = "Yellow";
+            SavedOrder.Fase = "Igang";
+            OnPropertyChanged();
+        }
+        public void StatusGreen()
+        {
+            SavedOrder.Color = "Green";
+            SavedOrder.Fase = "Færdig";
+            OnPropertyChanged();
+        }
         #endregion
     }
 }

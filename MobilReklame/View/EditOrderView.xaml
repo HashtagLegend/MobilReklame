@@ -15,9 +15,6 @@
 
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
         <Grid x:Name="Banner" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
-            <Grid.DataContext>
-                <mobilReklame:OrderViewModel/>
-            </Grid.DataContext>
             <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
             <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
             <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
@@ -75,10 +72,11 @@
                 <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="510,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBox Text="{Binding SavedOrder.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,259" BorderBrush="Black" BorderThickness="1">
                 <Grid x:Name="ListViewGrid" HorizontalAlignment="Left" Height="259" Margin="0,0,0,0" VerticalAlignment="Top" Width="750">
-                    <ListView HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="750" ItemsSource="{Binding ProductList}" Margin="0,0,0,0">
+                    <!--<ListView HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="750" ItemsSource="{Binding ProductList}" Margin="0,0,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="50" Width="1400">
@@ -92,7 +90,7 @@
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                    </ListView>
+                    </ListView>-->
 
                 </Grid>
             </Grid>
@@ -106,7 +104,6 @@
                 <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:CallMethodAction/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
@@ -118,41 +115,41 @@
                     </interactivity:Interaction.Behaviors>
                 </Button>
                 <TextBlock Width="50" Height="35" Text="Fase:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,165"/>
-                <Button Content="Tilbud" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,200" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderStatus}" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,200" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Tilbud" Width="475" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusTilbud"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Produktion" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusProduktion"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Levering" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusLevering"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Montering" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction  TargetObject="{Binding}" MethodName="StatusMontering"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Afslutning" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusAfslutning"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
@@ -160,27 +157,27 @@
                     </Button.Flyout>
                 </Button>
                 <TextBlock Width="100" Height="35" Text="Status:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,300"/>
-                <Button Content="Ikke startet" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,335" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderFase, Mode=OneWay}" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,335" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Ikke startet" Width="475" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusRed"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Igang" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusYellow"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
                             <MenuFlyoutItem Text="Færdig" FontSize="24">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
-                                        <core:CallMethodAction/>
+                                        <core:CallMethodAction TargetObject="{Binding}" MethodName="StatusGreen"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>

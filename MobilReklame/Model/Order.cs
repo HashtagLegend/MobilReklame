@@ -13,8 +13,6 @@ namespace MobilReklame
     public class Order
     {
         #region Properties
-        private int _statusNumber = 1;
-
         public string OrderName { get; set; }
         public string OrderId { get; set; }
         public string Commentary { get; set; }
@@ -30,9 +28,9 @@ namespace MobilReklame
         public string ViewATT { get; set; }
         public string ViewCVR { get; set; }
         public string Color { get; set; }
-        public int StatusNumber{ get { return _statusNumber; } set { _statusNumber = value; }}
         public string Status { get; set; }
-        
+        public string Fase { get; set; }
+
 
         #endregion
 
@@ -45,7 +43,6 @@ namespace MobilReklame
             Deadline = deadline;
             Delivery = delivery;
             Commentary = commentary;
-            OrderStatus();
         }
 
         #endregion
@@ -59,7 +56,7 @@ namespace MobilReklame
 
         public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
-            InvoiceToOrder = new Invoice(invoiceid,DateTime.Now, commentary);
+            InvoiceToOrder = new Invoice(invoiceid, DateTime.Now, commentary);
             double totalprice = OfferToOrder.TotalPrice;
 
         }
@@ -106,83 +103,18 @@ namespace MobilReklame
         /// Montering
         /// Afslutning
         /// </summary>
+        
+        #region PropertyChangeSupport
 
-        #region StatusColor
-        public void StatusPlusOne()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            StatusNumber++;
-        }
-        public void OrderStatus()
-        {
-            switch (StatusNumber)
-            {
-                case 1:
-                    Color = "Red";
-                    Status = "Tilbud";
-                    break;
-
-                case 2:
-                    Color = "Red";
-                    Status = "Produktion";
-                    break;
-
-                case 3:
-                    Color = "Yellow";
-                    Status = "Produktion";
-                    break;
-
-                case 4:
-                    Color = "Green";
-                    Status = "Produktion";
-                    break;
-
-                case 5:
-                    Color = "Red";
-                    Status = "Levering";
-                    break;
-
-                case 6:
-                    Color = "Yellow";
-                    Status = "Levering";
-                    break;
-
-                case 7:
-                    Color = "Green";
-                    Status = "Levering";
-                    break;
-
-                case 8:
-                    Color = "Red";
-                    Status = "Montering";
-                    break;
-
-                case 9:
-                    Color = "Yellow";
-                    Status = "Montering";
-                    break;
-
-                case 10:
-                    Color = "Green";
-                    Status = "Montering";
-                    break;
-
-                case 11:
-                    Color = "Red";
-                    Status = "Afslutning";
-                    break;
-
-                case 12:
-                    Color = "Yellow";
-                    Status = "Afslutning";
-                    break;
-
-                case 13:
-                    Color = "Green";
-                    Status = "Afslutning";
-                    break;
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
     }
 }
+
