@@ -94,7 +94,7 @@ namespace MobilReklame
 
         public void CreateOrder()
         {
-            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewDeadline, ViewDelivery, ViewCommentary);
+            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewDeadline, ViewDelivery, ViewCommentary);
             foreach (Order order in OrderCatalogSingleton.Instance.OrderCatalog)
             {
                 if (order.OrderName == ViewOrderName)
