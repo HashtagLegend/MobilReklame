@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="MobilReklame.CustomerArchive"
     mc:Ignorable="d">
     <Page.DataContext>
         <local:ArchiveViewModel/>
@@ -19,39 +20,39 @@
 
         <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
             <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </Button>
             <Button Content="Opret Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </Button>
             <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </Button>
             <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </Button>
             <AppBarButton Icon="Home" Label="" HorizontalAlignment="Right">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </AppBarButton>
         </GridView>
         <TextBox x:Name="VirksomhedsNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Virksomhed" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
