@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using MobilReklame.PersistencyServices;
 
-namespace MobilReklame
+namespace MobilReklame.Singleton
 {
     class OrderCatalogSingleton
     {
