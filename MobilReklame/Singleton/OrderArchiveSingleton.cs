@@ -26,8 +26,8 @@ namespace MobilReklame
         
 #endregion
 
-#region Constructor
-public OrderArchiveSingleton()
+        #region Constructor
+        public OrderArchiveSingleton()
         {
             OrderArchive = new ObservableCollection<Order>();
             //OrderArchive.Clear();
@@ -35,6 +35,7 @@ public OrderArchiveSingleton()
         }
         #endregion
 
+        #region Methods
         public void AddOrderToArchive(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
         {
             OrderArchive.Add(new Order(orderName, orderId, deadline, delivery, commentary));
@@ -68,5 +69,6 @@ public OrderArchiveSingleton()
         //        OrderArchive.Add(new Order("Gammel Ordre", "001", DateTime.Now, "Nej", "Den her lavede vi sidste år"));
         //    }
         //}
+        #endregion
     }
 }
