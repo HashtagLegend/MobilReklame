@@ -32,40 +32,9 @@ namespace MobilReklame
         {
            CustomerArchive = CustomerArchiveSingleton.Instance.CustomerArchive;
            OrderArchive = OrderArchiveSingleton.Instance.OrderArchive;
-           CustomerArchive.Add(new Customer("ffddfd","sdsds","dsdsd","sdsds","dsdsd","dsds"));
+           CustomerArchive.Add(new Customer("Google","57385433","Nysøgård 15","Test@Test.dk","Bent Poulsen","14356464"));
+           OrderArchive.Add(new Order("VikingeBorg","2353","Test")); 
         }
-        #endregion
-
-        #region Methods
-        //public async void SaveCustomerArchive()
-        //{
-        //    PersistencyServiceCustomerArchive.SaveCustomerArchiveAsJsonAsync(CustomerArchiveSingleton.Instance.CustomerArchive);
-        //}
-
-        //public async void LoadCustomerArchive()
-        //{
-        //    var CustomerArchive = await PersistencyServiceCustomerArchive.LoadCustomerArchiveFromJsonAsync();
-        //    CustomerArchiveSingleton.Instance.CustomerArchive.Clear();
-        //    foreach (var customer in CustomerArchive)
-        //    {
-        //        CustomerArchiveSingleton.Instance.CustomerArchive.Add(customer);
-        //    }
-        //}
-
-        //public async void SaveOrderArchive()
-        //{
-        //    PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);
-        //}
-
-        //public async void LoadOrderArchive()
-        //{
-        //    var orderarchive = await PersistencyServiceOrderArchive.LoadOrderArchiveFromJsonAsync();
-        //    OrderArchive.Clear();
-        //    foreach (var order in orderarchive)
-        //    {
-        //        OrderArchive.Add(order);
-        //    }
-        //}
         #endregion
     }
 }
