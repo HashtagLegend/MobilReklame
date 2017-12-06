@@ -53,9 +53,9 @@
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
         </GridView>
-        <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Odre Navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
+        <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Odrer Navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
         <TextBox x:Name="OrderIdList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Order ID" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
-        <TextBox x:Name="SpecList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Order Specs" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="523,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="DeadlineList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="523,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="LeveranceList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="755,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="KommentarList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="987,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="EmptyList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1219,290,0,0" Background="#668F8F8F"/>

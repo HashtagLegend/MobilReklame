@@ -32,6 +32,8 @@ namespace MobilReklame
         {
            CustomerArchive = CustomerArchiveSingleton.Instance.CustomerArchive;
            OrderArchive = OrderArchiveSingleton.Instance.OrderArchive;
+           CustomerArchive.Clear();
+           OrderArchive.Clear();
            CustomerArchive.Add(new Customer("Google","57385433","Nysøgård 15","Test@Test.dk","Bent Poulsen","14356464"));
            OrderArchive.Add(new Order("VikingeBorg","2353","Test")); 
         }
