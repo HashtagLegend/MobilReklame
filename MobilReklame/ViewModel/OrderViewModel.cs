@@ -26,8 +26,11 @@ namespace MobilReklame
         #region Properties
 
         public Order SelectedOrder { get; set; }
-        public Order SaveSelected { get; set; }
-        
+
+        public static Order SavedOrder { get; set; }
+
+
+
         #region OrderProperties
 
         public string ViewOrderName { get; set; }
@@ -81,13 +84,14 @@ namespace MobilReklame
             
             CustomerList = new ObservableCollection<Customer>();
             CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
+            
         }
 
         #region Methods
 
         public void SaveSelectedWhenNavigate()
         {
-            SaveSelected = SelectedOrder;
+            SavedOrder = SelectedOrder;
         }
 
         public void CreateOrder()
@@ -98,20 +102,13 @@ namespace MobilReklame
 
         public void CreateOffer()
         {
-            SaveSelected.CreateOffer();
+           
         }
-
-        public void SetNameForOffer()
-        {
-            SaveSelected.OfferToOrder.Name = OfferName;
-        }
+        
 
         public void CreateProductsToOffer()
         {
-            SaveSelected.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
-            SaveSelected.OfferToOrder.CalculateTotalPrice();
-            TotalPrice = SaveSelected.OfferToOrder.TotalPrice;
-            OnPropertyChanged();
+     
         }
 
         public void CreateInvoice(Order order)

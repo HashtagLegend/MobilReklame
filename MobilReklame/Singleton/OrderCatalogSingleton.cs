@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using MobilReklame.PersistencyServices;
 
-namespace MobilReklame.Singleton
+namespace MobilReklame
 {
     class OrderCatalogSingleton
     {
@@ -19,6 +19,7 @@ namespace MobilReklame.Singleton
         }
 
         public ObservableCollection<Order> OrderCatalog { get; }
+       
 
         private OrderCatalogSingleton()
         {
@@ -44,6 +45,8 @@ namespace MobilReklame.Singleton
             OrderCatalog.Remove(orderToBeRemoved);
             //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
+
+       
 
         //public async void LoadOrderCatalogAsync()
         //{

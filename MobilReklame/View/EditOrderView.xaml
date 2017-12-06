@@ -10,7 +10,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
     <Page.DataContext>
-        <mobilReklame:Offer/>
+        <mobilReklame:OrderViewModel/>
     </Page.DataContext>
 
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
@@ -62,9 +62,9 @@
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,518" BorderBrush="Black" BorderThickness="1">
                 <TextBlock Text="Ordre" HorizontalAlignment="Left" Height="40" Margin="375,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" TextDecorations="Underline"/>
                 <TextBlock Text="Ordre navn:" HorizontalAlignment="Left" Height="40" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="EASJ" HorizontalAlignment="Left" Height="40" Margin="140,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="{Binding SavedOrder.OrderName, Mode=TwoWay}" HorizontalAlignment="Left" Height="40" Margin="140,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Ordre ID:" HorizontalAlignment="Left" Height="40" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="2017-1234" HorizontalAlignment="Left" Height="40" Margin="115,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="{Binding SavedOrder.OrderId}" HorizontalAlignment="Left" Height="40" Margin="115,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <Grid Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" Margin="500,0,0,59" BorderBrush="Black" BorderThickness="1">
                     <TextBox Text="Kunde:" HorizontalAlignment="Left" Height="40" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
                     <TextBlock Text="EASJ" HorizontalAlignment="Left" Height="40" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
@@ -98,9 +98,9 @@
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,0" BorderBrush="Black" BorderThickness="1">
                 <TextBlock Text="Kommentar:" HorizontalAlignment="Left" Height="180" Margin="50,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBox Text="" HorizontalAlignment="Left" Height="180" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
+                <TextBox Text="{Binding SavedOrder.Commentary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="180" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Leverance:" HorizontalAlignment="Left" Height="180" Margin="450,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBox Text="" HorizontalAlignment="Left" Height="180" Margin="450,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
+                <TextBox Text="{Binding SavedOrder.Delivery, Mode=TwoWay}" HorizontalAlignment="Left" Height="180" Margin="450,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
             </Grid>
             <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="750,0,0,0" BorderBrush="Black" BorderThickness="1">
                 <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">

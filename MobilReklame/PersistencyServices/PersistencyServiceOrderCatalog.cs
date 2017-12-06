@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Windows.UI.Popups;
 using Windows.Storage;
 using System.IO;
-using MobilReklame.Singleton;
+using MobilReklame;
 
 
 

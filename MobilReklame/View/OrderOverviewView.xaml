@@ -70,6 +70,14 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
+            <Button Content="Åben Ordre" Height="38" Width="133">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.View.EditOrderView"/>
+                        <Core:CallMethodAction MethodName="SaveSelectedWhenNavigate" TargetObject="{Binding Mode=TwoWay}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
         </GridView>
         <Grid HorizontalAlignment="Left" Height="702" Margin="70,282,0,0" VerticalAlignment="Top" Width="1538">
             <ListView HorizontalAlignment="Left" Height="556" VerticalAlignment="Top" Width="1528" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" ItemTemplate="{StaticResource OrderOverViewDataTemplate(Use this one)}" Margin="0,50,0,0"/>
