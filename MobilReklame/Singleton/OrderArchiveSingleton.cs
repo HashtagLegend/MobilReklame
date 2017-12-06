@@ -35,6 +35,8 @@ namespace MobilReklame
         }
         #endregion
 
+        #region Methods
+        
         public void AddOrderToArchive(string orderName, DateTime deadline, string delivery, string commentary)
         {
             OrderArchive.Add(new Order(orderName, deadline, delivery, commentary));
