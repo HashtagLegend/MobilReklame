@@ -35,9 +35,9 @@ public OrderArchiveSingleton()
         }
         #endregion
 
-        public void AddOrderToArchive(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
+        public void AddOrderToArchive(string orderName, DateTime deadline, string delivery, string commentary)
         {
-            OrderArchive.Add(new Order(orderName, orderId, deadline, delivery, commentary));
+            OrderArchive.Add(new Order(orderName, deadline, delivery, commentary));
             //PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);
         }
 

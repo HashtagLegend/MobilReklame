@@ -27,9 +27,9 @@ namespace MobilReklame.Singleton
             //LoadOrderCatalogAsync();
         }
 
-        public void AddOrder(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
+        public void AddOrder(string orderName, DateTime deadline, string delivery, string commentary)
         {
-            OrderCatalog.Add(new Order(orderName, orderId, deadline, delivery, commentary));
+            OrderCatalog.Add(new Order(orderName, deadline, delivery, commentary));
             //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 

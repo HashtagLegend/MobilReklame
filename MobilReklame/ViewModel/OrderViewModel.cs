@@ -31,7 +31,7 @@ namespace MobilReklame
         #region OrderProperties
 
         public string ViewOrderName { get; set; }
-        public string ViewOrderID { get; set; }
+        //public string ViewOrderID { get; set; }
         public string ViewCommentary { get; set; }
         public DateTime ViewDeadline { get; set; }
         public string ViewDelivery { get; set; }
@@ -92,7 +92,7 @@ namespace MobilReklame
 
         public void CreateOrder()
         {
-            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewDeadline, ViewDelivery, ViewCommentary);
+            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewDeadline, ViewDelivery, ViewCommentary);
             OnPropertyChanged();
         }
 

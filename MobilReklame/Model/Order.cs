@@ -16,7 +16,7 @@ namespace MobilReklame
         private int _statusNumber = 1;
 
         public string OrderName { get; set; }
-        public string OrderId { get; set; }
+        public int OrderId { get; set; }
         public string Commentary { get; set; }
         public DateTime Deadline { get; set; }
         public string Delivery { get; set; }
@@ -32,16 +32,18 @@ namespace MobilReklame
         public string Color { get; set; }
         public int StatusNumber{ get { return _statusNumber; } set { _statusNumber = value; }}
         public string Status { get; set; }
-        
 
+        private static int _counter = (10001);
+        
+        
         #endregion
 
         #region Constructor
 
-        public Order(string orderName, string orderId, DateTime deadline, string delivery, string commentary)
+        public Order(string orderName, DateTime deadline, string delivery, string commentary)
         {
             OrderName = orderName;
-            OrderId = orderId;
+            OrderId = _counter++;
             Deadline = deadline;
             Delivery = delivery;
             Commentary = commentary;
