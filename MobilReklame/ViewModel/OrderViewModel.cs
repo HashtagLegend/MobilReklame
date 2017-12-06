@@ -11,6 +11,7 @@ using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using MobilReklame.Annotations;
 using MobilReklame.PersistencyServices;
+using MobilReklame.Singleton;
 using MobilReklame;
 
 namespace MobilReklame
