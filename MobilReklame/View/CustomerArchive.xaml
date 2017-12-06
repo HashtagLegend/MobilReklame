@@ -1,5 +1,4 @@
 ﻿<Page
-    x:Class="MobilReklame.CustomerArchive"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MobilReklame"
@@ -13,22 +12,54 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="318" Margin="373,235,0,0" VerticalAlignment="Top" Width="1200" ItemsSource="{Binding CustomerArchive}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"/>
-        <AppBarButton Icon="Home" Label="" HorizontalAlignment="Right" Margin="0,161,1458,0">
-            <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="Click">
-                    <core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
-                </core:EventTriggerBehavior>
-            </interactivity:Interaction.Behaviors>
-        </AppBarButton>
-        <Button Content="Fjern Kunde" HorizontalAlignment="Left" Margin="227,803,0,0" VerticalAlignment="Top" Height="73" Width="235">
-            <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="Click">
-                    <core:CallMethodAction MethodName="RemoveCustomer" TargetObject="{Binding Mode=OneWay}"/>
-                </core:EventTriggerBehavior>
-            </interactivity:Interaction.Behaviors>
-        </Button>
+        <ListView HorizontalAlignment="Left" Height="318" Margin="61,340,0,0" VerticalAlignment="Top" Width="1390" ItemsSource="{Binding CustomerArchive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
+        <GridView Width="1920" VerticalAlignment="Top" Height="170" HorizontalAlignment="Left" Background="Black"/>
+        <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
+
+        <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
+            <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Opret Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <AppBarButton Icon="Home" Label="" HorizontalAlignment="Right">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </GridView>
+        <TextBox x:Name="VirksomhedsNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Virksomhed" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
+        <TextBox x:Name="TelefonNrList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Telefon Nr" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="AdressList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Adress" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="523,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="EmailList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="755,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="AttList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="987,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="CVRList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1219,290,0,0" Background="#668F8F8F"/>
 
     </Grid>
 </Page>

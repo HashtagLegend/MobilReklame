@@ -12,21 +12,53 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="627" Margin="336,282,0,0" VerticalAlignment="Top" Width="1092" ItemsSource="{Binding OrderArchive}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"/>
-        <AppBarButton HorizontalAlignment="Left" Icon="Home" Label="Home" Margin="126,118,0,0" VerticalAlignment="Top">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </AppBarButton>
-        <Button Content="Fjern Ordre" HorizontalAlignment="Left" Margin="126,860,0,0" VerticalAlignment="Top" Height="49" Width="146">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction MethodName="RemoveOrder" TargetObject="{Binding Mode=OneWay}"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
+        <ListView HorizontalAlignment="Left" Height="531" Margin="61,340,0,0" VerticalAlignment="Top" Width="1390" ItemsSource="{Binding OrderArchive}"/>
+        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
+        <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
+
+        <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
+            <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Opret Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.CreateOrderView"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+            <AppBarButton Icon="Home" Label="" HorizontalAlignment="Right">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="MobilReklame.FrontPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </GridView>
+        <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Odrer Navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
+        <TextBox x:Name="OrderIdList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Order ID" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="DeadlineList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="523,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="LeveranceList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="755,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="KommentarList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="987,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="EmptyList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1219,290,0,0" Background="#668F8F8F"/>
 
     </Grid>
 </Page>
