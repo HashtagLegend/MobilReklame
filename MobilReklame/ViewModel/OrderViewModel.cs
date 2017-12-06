@@ -26,8 +26,12 @@ namespace MobilReklame
         #region Properties
 
         public Order SelectedOrder { get; set; }
-        public Order SaveSelected { get; set; }
+
+        public static Order SavedOrder { get; set; }
         
+
+
+
         #region OrderProperties
 
         public string ViewOrderName { get; set; }
@@ -79,39 +83,37 @@ namespace MobilReklame
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
             
-            CustomerList = new ObservableCollection<Customer>();
-            CustomerList.Add(new Customer("Google", "123456", "Googledrive 23", "gogle@google.dk", "Mr. Google", "3333555"));
         }
 
         #region Methods
 
         public void SaveSelectedWhenNavigate()
         {
-            SaveSelected = SelectedOrder;
+            SavedOrder = SelectedOrder;
         }
 
         public void CreateOrder()
         {
-            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewDeadline, ViewDelivery, ViewCommentary);
+            OrderCatalogSingleton.Instance.AddOrder(ViewOrderName, ViewOrderID, ViewDeadline, ViewDelivery, ViewCommentary);
+            foreach (Order order in OrderCatalogSingleton.Instance.OrderCatalog)
+            {
+                if (order.OrderName == ViewOrderName)
+                {
+                    order.CustomerToOrder = new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
+                }
+            }
             OnPropertyChanged();
         }
 
         public void CreateOffer()
         {
-            SaveSelected.CreateOffer();
+           
         }
-
-        public void SetNameForOffer()
-        {
-            SaveSelected.OfferToOrder.Name = OfferName;
-        }
+        
 
         public void CreateProductsToOffer()
         {
-            SaveSelected.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
-            SaveSelected.OfferToOrder.CalculateTotalPrice();
-            TotalPrice = SaveSelected.OfferToOrder.TotalPrice;
-            OnPropertyChanged();
+     
         }
 
         public void CreateInvoice(Order order)
@@ -121,8 +123,8 @@ namespace MobilReklame
 
         public void CreateCustomer()
         {
-           CustomerArchiveSingleton.Instance.AddCustomer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
-           OnPropertyChanged();
+            CustomerArchiveSingleton.Instance.AddCustomer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
+            OnPropertyChanged();
         }
 
         public void MoveOrderToOrderArchive()
