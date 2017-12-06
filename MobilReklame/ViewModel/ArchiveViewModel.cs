@@ -25,7 +25,8 @@ namespace MobilReklame
         {
            CustomerArchive = CustomerArchiveSingleton.Instance.CustomerArchive;
            OrderArchive = OrderArchiveSingleton.Instance.OrderArchive;
-
+           CustomerArchive.Add(new Customer("Apple","26262626","Nygade21","apple@apple.dk","Steve Jobs","12121212"));
+        
         }
         #endregion
 
