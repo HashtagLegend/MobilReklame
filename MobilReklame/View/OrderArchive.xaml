@@ -8,12 +8,41 @@
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="MobilReklame.OrderArchive"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="OrderArchiveTemplate">
+            <Grid Height="41" Width="511" Background="#FFE8E5E5" RenderTransformOrigin="0.471,0.497"/>
+        </DataTemplate>
+        <DataTemplate x:Key="OrderArchiveDataTemplate">
+            <Grid Height="45" Width="1390" Background="White">
+                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="1390" Orientation="Horizontal">
+                    <StackPanel Width="232">
+                        <TextBox x:Name="OrderName" TextWrapping="Wrap" Text="{Binding OrderName, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Width="232">
+                        <TextBox x:Name="OrderId" TextWrapping="Wrap" Text="{Binding OrderId, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Width="232">
+                        <TextBox x:Name="Deadline" TextWrapping="Wrap" Text="{Binding Deadline, Mode=OneWay}" FontSize="24" Height="45" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Width="232">
+                        <TextBox x:Name="Delivery" TextWrapping="Wrap" Text="{Binding Delivery, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Width="232">
+                        <TextBox x:Name="Comment" TextWrapping="Wrap" Text="{Binding Commentary, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Width="232">
+                        <TextBox x:Name="Empty" TextWrapping="Wrap" Text="" FontSize="24" IsReadOnly="True"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Page.DataContext>
         <local:ArchiveViewModel/>
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="531" Margin="61,340,0,0" VerticalAlignment="Top" Width="1390" ItemsSource="{Binding OrderArchive}"/>
+        <ListView HorizontalAlignment="Left" Height="531" Margin="48,340,0,0" VerticalAlignment="Top" Width="1417" ItemsSource="{Binding OrderArchive}" ItemTemplate="{StaticResource OrderArchiveDataTemplate}" Background="White"/>
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
         <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
 
@@ -54,8 +83,8 @@
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
         </GridView>
-        <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Odrer Navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
-        <TextBox x:Name="OrderIdList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Order ID" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="OrdreNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Ordre Navn" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
+        <TextBox x:Name="OrderIdList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Ordre ID" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="DeadlineList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="523,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="LeveranceList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="755,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="KommentarList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="987,290,0,0" Background="#668F8F8F"/>
