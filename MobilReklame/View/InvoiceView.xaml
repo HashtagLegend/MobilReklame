@@ -32,7 +32,6 @@
         <TextBox HorizontalAlignment="Left" Margin="711,347,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="29" Width="215" FontSize="24"/>
         <TextBox HorizontalAlignment="Left" Margin="711,398,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30" Width="215" FontSize="24"/>
         <TextBox HorizontalAlignment="Left" Margin="711,436,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="32" Width="215" FontSize="24"/>
-        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF040000"/>
         <CommandBar Margin="10,170,0,0">
             <CommandBar.Content>
                 <Grid/>
@@ -41,6 +40,9 @@
             <AppBarButton Icon="Cancel" Label="AppBarButton"/>
         </CommandBar>
         <Button Content="Gem" HorizontalAlignment="Left" Margin="816,916,0,0" VerticalAlignment="Top" FontSize="24" Height="47" Width="110"/>
+        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF0D0101">
+            <Image Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="745"/>
+        </GridView>
 
     </Grid>
 </Page>

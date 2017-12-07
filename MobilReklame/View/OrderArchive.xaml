@@ -43,8 +43,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView HorizontalAlignment="Left" Height="531" Margin="48,340,0,0" VerticalAlignment="Top" Width="1417" ItemsSource="{Binding OrderArchive}" ItemTemplate="{StaticResource OrderArchiveDataTemplate}" Background="White"/>
-        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
-        <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
 
         <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
             <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -89,6 +87,9 @@
         <TextBox x:Name="LeveranceList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Leverance" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="755,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="KommentarList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="987,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="EmptyList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1219,290,0,0" Background="#668F8F8F"/>
+        <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF0D0101">
+            <Image Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="745"/>
+        </GridView>
 
     </Grid>
 </Page>
