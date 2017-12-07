@@ -100,7 +100,7 @@
                 <TextBlock Text="Leverance:" HorizontalAlignment="Left" Height="180" Margin="450,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBox Text="{Binding SavedOrder.Delivery, Mode=TwoWay}" HorizontalAlignment="Left" Height="180" Margin="450,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
             </Grid>
-            <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="750,0,0,0" BorderBrush="Black" BorderThickness="1">
+            <Grid Height="768" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="749" Margin="751,-1,0,10" BorderBrush="Black" BorderThickness="1">
                 <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
