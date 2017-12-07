@@ -113,13 +113,16 @@ namespace MobilReklame
 
         public void CreateOffer()
         {
-           
+            SavedOrder.CreateOffer();
+            SavedOrder.OfferToOrder.Name = OfferName;
+            
         }
         
-
         public void CreateProductsToOffer()
         {
-     
+            SavedOrder.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
+            SavedOrder.OfferToOrder.CalculateTotalPrice();
+            OnPropertyChanged();
         }
 
         public void CreateInvoice(Order order)
