@@ -8,34 +8,33 @@ namespace MobilReklame
 {
     public class Product
     {
-        #region Instance Field
-        private string _name;
-        private int _quantity;
-        private double _price;
-        //Oprettelse af instance fields ud fra klasse diagram, så vi har varenavn, varetype,
-        //hvor mange styks og til sidst prisen på varer
-        #endregion
+      
 
         #region Constructor
         public Product(string name, int quantity, double price)
         {
-            _name = name;
-            _quantity = quantity;
-            _price = price;
+            Name = name;
+            Quantity = quantity;
+            Price = price;
         }
-        //En ctorf, altså en constructor ud fra instance field
+        
         #endregion
 
         #region Properties
         public string Name { get; set; }
 
         public int Quantity { get; set; }
-
         
-
         public double Price { get; set; }
 
-        //4 styks prop af name, type, quantity og price
+       
         #endregion
+
+        public override string ToString()
+        {
+            return $"{Name}: {Quantity}, {Price}";
+        }
     }
+
+
 }

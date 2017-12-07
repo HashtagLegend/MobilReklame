@@ -123,23 +123,17 @@ namespace MobilReklame
 
         public void CreateOffer()
         {
-            SavedOrder.CreateOffer();
-            SavedOrder.OfferToOrder.ProductList = new ObservableCollection<Product>();
-                      
+            SavedOrder.CreateOffer();          
         }
         
         public void CreateProductsToOffer()
         {
-            SavedOrder.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
-            SavedOrder.OfferToOrder.CalculateTotalPrice();
+            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice));
+            SavedOrder.OfferToOrder.CalculateTotalPrice(ProductQuantity,ProductPrice);
             TotalPrice = SavedOrder.OfferToOrder.TotalPrice;
             OnPropertyChanged();
         }
 
-        public void CalculatePrice()
-        {
-            SavedOrder.OfferToOrder.CalculateTotalPrice();
-        }
 
         public void DeleteProductFromList()
         {

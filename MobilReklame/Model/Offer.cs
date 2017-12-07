@@ -37,7 +37,7 @@ namespace MobilReklame
         {
             OfferID = _offerCounter;
             _offerCounter++;
-          
+            ProductList = new ObservableCollection<Product>();         
         }
 
        public void CreateProduct(string name, int quantity, double price)
@@ -46,13 +46,9 @@ namespace MobilReklame
             OnPropertyChanged();
        }
 
-        public void CalculateTotalPrice()
+        public void CalculateTotalPrice(int quan, double price)
         {
-            foreach (Product product in ProductList)
-            {
-                TotalPrice = (product.Price*product.Quantity) + TotalPrice;
-            }
-            TotalPrice = TotalPrice * _vat;
+            TotalPrice = (quan * price)+TotalPrice;
             OnPropertyChanged();
         }
 
