@@ -77,7 +77,7 @@
         </GridView>
         <TextBox x:Name="VirksomhedsNavnList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Virksomhed" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0"/>
         <TextBox x:Name="TelefonNrList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Telefon Nr" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="293,290,0,0" Background="#668F8F8F"/>
-        <TextBox x:Name="AdressList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Adress" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="525,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="AdressList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="525,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="EmailList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="757,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="AttList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="989,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="CVRList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1221,290,0,0" Background="#668F8F8F"/>
@@ -85,6 +85,8 @@
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF0D0101">
             <Image Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="745"/>
         </GridView>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="61,235,0,0" VerticalAlignment="Top" Width="152" Background="#FF1CB0DF"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,245,0,0" TextWrapping="Wrap" Text="Kunde Arkiv" VerticalAlignment="Top" Height="36" Width="141" FontSize="24"/>
 
     </Grid>
 </Page>
