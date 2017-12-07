@@ -10,7 +10,7 @@ using MobilReklame.Annotations;
 
 namespace MobilReklame
 {
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         #region Properties
         public string OrderName { get; set; }
@@ -27,12 +27,32 @@ namespace MobilReklame
         public string ViewEmail { get; set; }
         public string ViewATT { get; set; }
         public string ViewCVR { get; set; }
-        public string Color { get; set; }
-        public string Status { get; set; }
+
+        public string Color
+        {
+            get { return _color; }
+            set
+            {
+                _color = value;
+                OnPropertyChanged(); 
+            }
+        }
+
+        public string Status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value; 
+                OnPropertyChanged();
+            }
+        }
 
         private static int _counter = (10001);
-        
-        
+        private string _color;
+        private string _status;
+
+
         public string Fase { get; set; }
 
 
