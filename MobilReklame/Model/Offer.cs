@@ -35,7 +35,7 @@ namespace MobilReklame
         {
             foreach (Product product in ProductList)
             {
-                //TotalPrice = (product.Price * product.Quantity) + TotalPrice;
+                TotalPrice = (product.Price*product.Quantity) + TotalPrice;
             }
             TotalPrice = TotalPrice * _vat;
         }
