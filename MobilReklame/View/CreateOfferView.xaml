@@ -11,10 +11,10 @@
     <Page.Resources>
         <DataTemplate x:Key="ProductListDataTemplate">
             <Grid Width="747">
-                <StackPanel HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="747" Orientation="Horizontal" Margin="0,0,0,-24">
+                <StackPanel HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="747" Orientation="Horizontal" Margin="0,0,0,-56">
                     <TextBox TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" Width="382" FontSize="24"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay}" Width="70" FontSize="24"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" Width="70" FontSize="24"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay}" Width="70" FontSize="24" Height="60"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" Width="70" FontSize="24" Height="60"/>
                     <AppBarButton HorizontalAlignment="Stretch" Icon="Delete" Label="" VerticalAlignment="Stretch" d:LayoutOverrides="Width">
                         <interactivity:Interaction.Behaviors>
                             <core:EventTriggerBehavior EventName="Click">
@@ -91,7 +91,7 @@
                 <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="409,222,0,-3" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="24"/>
                 <TextBlock Text="Pris" HorizontalAlignment="Left" Height="40" Margin="501,221,0,-2" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" FontSize="24"/>
                 <TextBlock Text="Offer ID:" HorizontalAlignment="Left" Height="40" Margin="12,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontSize="24"/>
-                <TextBlock Text="{Binding SavedOrder.OfferID}" HorizontalAlignment="Left" Height="40" Margin="116,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="{Binding SavedOrder.OfferToOrder.OfferID}" HorizontalAlignment="Left" Height="40" Margin="116,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
             </Grid>
             <Grid Height="433" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="1,0,0,15" BorderBrush="Black" BorderThickness="1">
                 <Grid.ColumnDefinitions>
@@ -99,7 +99,7 @@
                     <ColumnDefinition Width="95*"/>
                 </Grid.ColumnDefinitions>
                 <ListView HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="747" Margin="3,3,-2,0" Grid.ColumnSpan="2" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" SelectedItem="{Binding SelectedProduct}" ItemTemplate="{StaticResource ProductListDataTemplate}"/>
-                <TextBox HorizontalAlignment="Left" Margin="554,357,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+                <TextBox HorizontalAlignment="Left" Margin="554,357,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
                 <TextBlock HorizontalAlignment="Left" Margin="555,326,0,0" TextWrapping="Wrap" Text="Pris Total" FontSize="24" VerticalAlignment="Top"/>
                 <Button Content="Færdig" FontSize="24" HorizontalAlignment="Left" Margin="327,359,0,0" VerticalAlignment="Top" Height="43" Width="109">
                     <interactivity:Interaction.Behaviors>
@@ -111,13 +111,14 @@
                 </Button>
             </Grid>
             <Grid Height="768" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="749" Margin="751,-1,0,10" BorderBrush="Black" BorderThickness="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="2,263,0,0" TextWrapping="Wrap" Text="{Binding ProductName, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="60" Width="382"/>
+            <TextBox x:Name="ProductTB" HorizontalAlignment="Left" Margin="2,263,0,0" TextWrapping="Wrap" Text="{Binding ProductName, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="60" Width="382"/>
             <TextBox HorizontalAlignment="Left" Margin="406,263,0,0" TextWrapping="Wrap" Text="{Binding ProductQuantity, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="60" Width="70"/>
             <TextBox HorizontalAlignment="Left" Margin="499,263,0,0" TextWrapping="Wrap" Text="{Binding ProductPrice, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="60" Width="70"/>
             <Button Content="Tilføj" FontSize="24" HorizontalAlignment="Left" Margin="587,264,0,0" VerticalAlignment="Top" Height="57" Width="146">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
-                        <core:CallMethodAction/>
+                        <core:CallMethodAction MethodName="CreateProductsToOffer" TargetObject="{Binding Mode=OneWay}"/>
+                        <core:ChangePropertyAction TargetObject="{Binding ElementName=ProductTB}" PropertyName="Text" Value=""/>
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </Button>

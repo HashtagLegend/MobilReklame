@@ -19,6 +19,8 @@ namespace MobilReklame
 {
    public class OrderViewModel : INotifyPropertyChanged
     {
+        private double _totalPrice;
+
         #region BackingField
 
         
@@ -52,7 +54,13 @@ namespace MobilReklame
         public string ProductName { get; set; }
         public int ProductQuantity { get; set; }
         public double ProductPrice { get; set; }
-        public double TotalPrice { get; set; }
+
+        public double TotalPrice
+        {
+            get { return _totalPrice; }
+            set { _totalPrice = value; OnPropertyChanged();}
+        }
+
         public Product SelectedProduct { get; set; }
 
 
@@ -116,21 +124,26 @@ namespace MobilReklame
         public void CreateOffer()
         {
             SavedOrder.CreateOffer();
-            SavedOrder.OfferToOrder.Name = OfferName;
-            
+            SavedOrder.OfferToOrder.ProductList = new ObservableCollection<Product>();
+                      
         }
         
         public void CreateProductsToOffer()
         {
             SavedOrder.OfferToOrder.CreateProduct(ProductName,ProductQuantity,ProductPrice);
             SavedOrder.OfferToOrder.CalculateTotalPrice();
+            TotalPrice = SavedOrder.OfferToOrder.TotalPrice;
             OnPropertyChanged();
+        }
+
+        public void CalculatePrice()
+        {
+            SavedOrder.OfferToOrder.CalculateTotalPrice();
         }
 
         public void DeleteProductFromList()
         {
-            SavedOrder.OfferToOrder.ProductList.Remove(SelectedProduct);
-            OnPropertyChanged();
+           
         }
 
         public void CreateInvoice(Order order)
