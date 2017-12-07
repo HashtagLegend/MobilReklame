@@ -13,7 +13,7 @@
 
                 <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="1,1,0,1"/>
                 <TextBox TextWrapping="Wrap" Text="{Binding Deadline, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Fase, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1" Background="{Binding Color}"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1" Background="{Binding Color}"/>
                 <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" Width="396" IsReadOnly="True" BorderThickness="0,1"/>
                 <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" Width="400" IsReadOnly="True" BorderThickness="0,1,1,1"/>
             </StackPanel>

@@ -13,7 +13,7 @@
         <mobilReklame:OrderViewModel/>
     </Page.DataContext>
 
-    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
+    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1070" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1910">
         <Grid x:Name="Banner" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
             <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
             <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
@@ -70,9 +70,9 @@
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Adress}" HorizontalAlignment="Left" Height="40" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 </Grid>
                 <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="Måler" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
+                <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
                 <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="510,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBox Text="{Binding SavedOrder.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
+                <TextBox Text="{Binding SavedOrder.Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,259" BorderBrush="Black" BorderThickness="1">
                 <Grid x:Name="ListViewGrid" HorizontalAlignment="Left" Height="259" Margin="0,0,0,0" VerticalAlignment="Top" Width="750">
@@ -104,6 +104,8 @@
                 <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction MethodName="CreateOffer" TargetObject="{Binding Mode=OneWay}"/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.ViewModel.CreateOfferView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

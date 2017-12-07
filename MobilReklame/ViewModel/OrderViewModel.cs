@@ -53,6 +53,8 @@ namespace MobilReklame
         public int ProductQuantity { get; set; }
         public double ProductPrice { get; set; }
         public double TotalPrice { get; set; }
+        public Product SelectedProduct { get; set; }
+
 
         #endregion
 
@@ -122,6 +124,12 @@ namespace MobilReklame
      
         }
 
+        public void DeleteProductFromList()
+        {
+            SavedOrder.OfferToOrder.ProductList.Remove(SelectedProduct);
+            OnPropertyChanged();
+        }
+
         public void CreateInvoice(Order order)
         {
             order.CreateInvoice(InvoiceID, DateTime.Now, InvoiceCommentary);
@@ -147,6 +155,9 @@ namespace MobilReklame
             OnPropertyChanged();
             MessageDialogHelper.Show("Ordren er slettet!", "Oplysning");
         }
+        #endregion
+
+        #region MessageDialogHelper
 
         private class MessageDialogHelper
         {
@@ -158,7 +169,7 @@ namespace MobilReklame
         }
 
         #endregion
-
+        
         #region PropertyChangeSupport
 
         public event PropertyChangedEventHandler PropertyChanged;
