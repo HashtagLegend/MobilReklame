@@ -52,7 +52,7 @@
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
             </GridView>
-            <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="#FF0D0101" Margin="0,0,-420,0">
+            <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1501" Background="#FF0D0101" Margin="0,0,-1,0">
                 <Image Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="745"/>
             </GridView>
         </Grid>
