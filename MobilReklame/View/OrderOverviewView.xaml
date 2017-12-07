@@ -9,14 +9,36 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="OrderOverViewDataTemplate(Use this one)">
-            <StackPanel Background="White" Orientation="Horizontal">
+            <StackPanel Background="White" Orientation="Horizontal" BorderBrush="Black">
 
-                <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" BorderBrush="#FF050505" Width="199" IsReadOnly="True"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding OrderId}" FontSize="24" BorderBrush="#FF050505" Width="200" IsReadOnly="True"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Deadline}" FontSize="24" BorderBrush="#FF050505" Width="200" IsReadOnly="True"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" BorderBrush="#FF050505" Width="400" IsReadOnly="True"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" BorderBrush="#FF050505" Width="400" IsReadOnly="True"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="1,1,0,1"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Deadline, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Fase, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1" Background="{Binding Color}"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" Width="396" IsReadOnly="True" BorderThickness="0,1"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" Width="400" IsReadOnly="True" BorderThickness="0,1,1,1"/>
             </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="CustomerArchiveTemplate">
+            <Grid Height="45" Width="1390" Background="WhiteSmoke">
+                <StackPanel HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="232" Margin="693,0,0,0" Grid.ColumnSpan="2">
+                    <TextBox TextWrapping="Wrap" Text="{Binding Email, Mode=OneWay}" FontSize="24" Height="44" Margin="1,0,-1,0" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="232" Margin="231,-2,0,0">
+                    <TextBox TextWrapping="Wrap" Text="{Binding PhoneNumber, Mode=OneWay}" FontSize="24" Width="232" Height="45" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="232" Margin="463,-2,0,0">
+                    <TextBox TextWrapping="Wrap" Text="{Binding Adress, Mode=OneWay}" FontSize="24" Width="232" Height="45" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Height="45" VerticalAlignment="Top" Width="232.5">
+                    <TextBox TextWrapping="Wrap" Text="{Binding Cvr, Mode=TwoWay}" FontSize="24" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="231">
+                    <TextBox TextWrapping="Wrap" Text="{Binding CompanyName, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="45" Margin="926,-2,0,0" VerticalAlignment="Top" Width="232.5">
+                    <TextBox TextWrapping="Wrap" Text="{Binding Att, Mode=TwoWay}" FontSize="24" Height="45" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
 
@@ -63,13 +85,6 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
-            <Button Content="Flyt til OrdreArkiv" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.39,0.531">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:CallMethodAction MethodName="MoveOrderToOrderArchive" TargetObject="{Binding Mode=OneWay}"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </Button>
             <Button Content="Åben Ordre" Height="38" Width="133">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
@@ -80,17 +95,14 @@
             </Button>
         </GridView>
         <Grid HorizontalAlignment="Left" Height="702" Margin="70,282,0,0" VerticalAlignment="Top" Width="1538">
-            <ListView HorizontalAlignment="Left" Height="556" VerticalAlignment="Top" Width="1528" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" ItemTemplate="{StaticResource OrderOverViewDataTemplate(Use this one)}" Margin="0,50,0,0"/>
-            <Grid HorizontalAlignment="Left" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="1518">
-                <StackPanel HorizontalAlignment="Left" Height="38" Margin="0,10,0,0" VerticalAlignment="Top" Width="1508" Orientation="Horizontal" Background="#FF1CB0DF">
-                    <TextBlock TextWrapping="Wrap" Text="Ordre Navn" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
-                    <TextBlock TextWrapping="Wrap" Text="Ordre ID" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
-                    <TextBlock TextWrapping="Wrap" Text="Deadline" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
-                    <TextBlock TextWrapping="Wrap" Text="Levering" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
-                    <TextBlock TextWrapping="Wrap" Text="Kommentar" Width="200" Height="44" FontSize="24" FontWeight="Bold"/>
-                </StackPanel>
-            </Grid>
+            <ListView HorizontalAlignment="Left" Height="556" VerticalAlignment="Top" Width="1528" ItemsSource="{Binding OrderList}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}" ItemTemplate="{StaticResource OrderOverViewDataTemplate(Use this one)}" Margin="-20,56,0,0"/>
         </Grid>
+        <TextBox x:Name="Ordrenavn" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Ordre Navn" VerticalAlignment="Top" Width="200" FontSize="24" IsReadOnly="True" Background="#668F8F8F" Margin="61,290,0,0" TextChanged="VirksomhedsNavnList_TextChanged"/>
+        <TextBox x:Name="Deadline" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="200" FontSize="24" IsReadOnly="True" Margin="260,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="Status" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" Width="200" FontSize="24" IsReadOnly="True" Margin="459,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="Levering" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Levering" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="658,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="Kommentar" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="1057,290,0,0" Background="#668F8F8F"/>
+        <TextBox x:Name="Choose" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Vælg" VerticalAlignment="Top" Width="100" FontSize="24" IsReadOnly="True" Margin="1456,290,0,0" Background="#668F8F8F"/>
 
     </Grid>
 </Page>

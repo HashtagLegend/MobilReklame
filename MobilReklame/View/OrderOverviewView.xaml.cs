@@ -26,5 +26,10 @@ namespace MobilReklame
         {
             this.InitializeComponent();
         }
+
+        private void VirksomhedsNavnList_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

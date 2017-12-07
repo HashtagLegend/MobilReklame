@@ -35,14 +35,14 @@
                 <Button Content="Ordre Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.OrderArchive"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
                 <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.CustomerArchive"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
@@ -57,7 +57,7 @@
         </Grid>
         <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0">
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,518" BorderBrush="Black" BorderThickness="1">
-                <TextBlock Text="Ordre" HorizontalAlignment="Left" Height="40" Margin="375,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" TextDecorations="Underline"/>
+                <TextBlock Text="Ordre" HorizontalAlignment="Left" Height="40" Margin="375,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Ordre navn:" HorizontalAlignment="Left" Height="40" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="{Binding SavedOrder.OrderName, Mode=TwoWay}" HorizontalAlignment="Left" Height="40" Margin="140,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Ordre ID:" HorizontalAlignment="Left" Height="40" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
@@ -70,7 +70,7 @@
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Adress}" HorizontalAlignment="Left" Height="40" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 </Grid>
                 <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="Måler" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
                 <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="510,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBox Text="{Binding SavedOrder.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
             </Grid>
@@ -115,7 +115,7 @@
                     </interactivity:Interaction.Behaviors>
                 </Button>
                 <TextBlock Width="50" Height="35" Text="Fase:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,165"/>
-                <Button Content="{Binding ViewOrderStatus}" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,200" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderStatus}" Height="75" Width="650" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,201,0,0" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Tilbud" Width="475" FontSize="24">
@@ -153,11 +153,11 @@
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </MenuFlyoutItem>
-                    </MenuFlyout>
+                        </MenuFlyout>
                     </Button.Flyout>
                 </Button>
                 <TextBlock Width="100" Height="35" Text="Status:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,300"/>
-                <Button Content="{Binding ViewOrderFase, Mode=OneWay}" Height="75" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,335" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderFase, Mode=OneWay}" Height="75" Width="649" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,337,0,0" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Ikke startet" Width="475" FontSize="24">
@@ -202,14 +202,16 @@
                 <Button Content="Afslut Ordre" HorizontalAlignment="Left" Height="75" Margin="51,600,0,0" VerticalAlignment="Top" Width="400" BorderBrush="Black" BorderThickness="1" FontSize="24">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:CallMethodAction/>
+                            <core:CallMethodAction MethodName="MoveOrderToOrderArchive" TargetObject="{Binding Mode=OneWay}"/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
                 <Button Content="Slet Ordre" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,600,0,0" BorderBrush="Black" BorderThickness="1">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:CallMethodAction/>
+                            <core:CallMethodAction MethodName="DeleteOrder" TargetObject="{Binding Mode=OneWay}"/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

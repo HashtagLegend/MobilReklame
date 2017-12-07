@@ -70,11 +70,7 @@ namespace MobilReklame
             CustomerToOrder = new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
         }
 
-        public void AddOrderToOverViewList()
-        {
-
-        }
-
+       
         public void ShowOffer()
         {
 

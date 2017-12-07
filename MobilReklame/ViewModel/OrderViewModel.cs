@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Popups;
 using MobilReklame.Annotations;
 using MobilReklame.PersistencyServices;
 using MobilReklame.Singleton;
@@ -85,7 +86,9 @@ namespace MobilReklame
         {
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
-            
+            //OrderCatalogSingleton.Instance.AddOrder(new Order("VikingeBorg", DateTime.Now, "Nej", "Ingen kommentar"));
+            //OrderCatalogSingleton.Instance.AddOrder(new Order("Legeplads", DateTime.Now, "Nej", "Ingen kommentar"));
+
         }
 
         #region Methods
@@ -132,13 +135,30 @@ namespace MobilReklame
 
         public void MoveOrderToOrderArchive()
         {
-            OrderArchiveSingleton.Instance.AddOrderToArchive(SelectedOrder);
-            OrderCatalogSingleton.Instance.RemoveOrder(SelectedOrder);
+            OrderArchiveSingleton.Instance.AddOrderToArchive(SavedOrder);
+            OrderCatalogSingleton.Instance.RemoveOrder(SavedOrder);
             OnPropertyChanged();
+            MessageDialogHelper.Show("Ordren er flyttet til Ordre Arkivet!", "Arkiv");
+        }
+
+        public void DeleteOrder()
+        {
+            OrderCatalogSingleton.Instance.RemoveOrder(SavedOrder);
+            OnPropertyChanged();
+            MessageDialogHelper.Show("Ordren er slettet!", "Oplysning");
+        }
+
+        private class MessageDialogHelper
+        {
+            public static async void Show(string content, string title)
+            {
+                MessageDialog messageDialog = new MessageDialog(content, title);
+                await messageDialog.ShowAsync();
+            }
         }
 
         #endregion
-       
+
         #region PropertyChangeSupport
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -150,6 +170,7 @@ namespace MobilReklame
         }
 
         #endregion
+
         #region Status
         public void StatusTilbud()
         {
