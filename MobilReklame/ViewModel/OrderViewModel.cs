@@ -134,6 +134,11 @@ namespace MobilReklame
             OnPropertyChanged();
         }
 
+        public void CalculatePrice()
+        {
+            SavedOrder.OfferToOrder.CalculateTotalPrice(ProductQuantity, ProductPrice);
+        }
+
 
         public void DeleteProductFromList()
         {

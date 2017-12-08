@@ -14,10 +14,11 @@ namespace MobilReklame
    public class Offer : INotifyPropertyChanged
    {
 
-        private double _vat = 1.25;
+       private double _vat = 1.25;
        private double _totalPrice;
        public int OfferID { get; set; }
-        public string Name { get; set; }
+       public string Name { get; set; }
+       
 
        public double TotalPrice
        {
@@ -51,7 +52,6 @@ namespace MobilReklame
             TotalPrice = (quan * price)+TotalPrice;
             OnPropertyChanged();
         }
-
 
        public event PropertyChangedEventHandler PropertyChanged;
 

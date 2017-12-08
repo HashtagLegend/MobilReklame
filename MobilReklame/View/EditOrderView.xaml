@@ -112,7 +112,7 @@
                 <Button Content="Vis Tilbud" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,50,0,0" BorderBrush="Black" BorderThickness="1">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage=""/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.ViewModel.CreateOfferView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
