@@ -103,6 +103,7 @@
         <TextBox x:Name="Levering" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Levering" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="658,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="Kommentar" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="1057,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="Choose" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Vælg" VerticalAlignment="Top" Width="100" FontSize="24" IsReadOnly="True" Margin="1456,290,0,0" Background="#668F8F8F"/>
+        <TextBox BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="45" Margin="61,230,0,0" TextWrapping="Wrap" Text="Igangværende Ordre" VerticalAlignment="Top" Width="260" FontSize="24" Background="#FF1CB0DF" />
 
     </Grid>
 </Page>
