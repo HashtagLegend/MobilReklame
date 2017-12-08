@@ -63,9 +63,9 @@
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,50,0,0" TextWrapping="Wrap" Text="Ordre navn:" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="140,50,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.OrderName}" VerticalAlignment="Top" Width="400" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,80,0,0" TextWrapping="Wrap" Text="Ordre ID:" VerticalAlignment="Top" Width="159" FontSize="24"/>
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="115,80,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.OrderId}" VerticalAlignment="Top" Width="159" FontSize="24"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="116,81,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.OrderId}" VerticalAlignment="Top" Width="170" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,200,0,0" TextWrapping="Wrap" Text="Faktura nr:" VerticalAlignment="Top" Width="159" FontSize="24"/>
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="130,200,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.InvoiceToOrder.invoidid}" VerticalAlignment="Top" Width="159" FontSize="24"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="130,200,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.InvoiceId}" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,245,0,0" TextWrapping="Wrap" Text="Produkter" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <Grid HorizontalAlignment="Right" Margin="0,1,1,-1" Width="250" BorderBrush="Black" BorderThickness="1">
                         <Grid HorizontalAlignment="Left" Height="50" Margin="0,0,0,0" VerticalAlignment="Top" Width="250" BorderBrush="Black" BorderThickness="1">

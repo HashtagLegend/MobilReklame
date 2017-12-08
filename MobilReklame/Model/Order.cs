@@ -15,6 +15,7 @@ namespace MobilReklame
         #region Properties
         public string OrderName { get; set; }
         public int OrderId { get; set; }
+        public int InvoiceId { get; set; }
         public string Commentary { get; set; }
         public DateTime Deadline { get; set; }
         public string Delivery { get; set; }
@@ -48,9 +49,11 @@ namespace MobilReklame
             }
         }
 
+        private static int _invoiceCounter = (10001);
         private static int _counter = (10001);
         private string _color;
         private string _status;
+
 
 
         public string Fase { get; set; }
@@ -62,6 +65,7 @@ namespace MobilReklame
 
         public Order(string orderName, DateTime deadline, string delivery, string commentary)
         {
+            InvoiceId = _invoiceCounter++;
             OrderName = orderName;
             OrderId = _counter++;
             Deadline = deadline;
@@ -80,16 +84,10 @@ namespace MobilReklame
 
         public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
-            InvoiceToOrder = new Invoice(invoiceid, DateTime.Now, commentary);
+            InvoiceToOrder = new Invoice(DateTime.Now, commentary);
             double totalprice = OfferToOrder.TotalPrice;
 
         }
-
-        public void CreateCustomer()
-        {
-            CustomerToOrder = new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
-        }
-
        
         public void ShowOffer()
         {

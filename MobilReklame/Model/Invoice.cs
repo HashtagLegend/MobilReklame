@@ -18,11 +18,6 @@ namespace MobilReklame
 
         #region Propeties
 
-        public int invoidid
-        {
-            get { return _invoidid; }
-            set { _invoidid = value; }
-        }
 
         public DateTime MadeDateTime
         {
@@ -36,17 +31,24 @@ namespace MobilReklame
             set { _commentary = value; }
         }
 
+        private static int _invoiceCounter = (10001);
         #endregion
 
         #region Constructor
 
-        public Invoice(int invoidid, DateTime madeDateTime, string commentary)
+        public Invoice(DateTime madeDateTime, string commentary)
         {
-            _invoidid = invoidid;
             _madeDateTime = madeDateTime;
             _commentary = commentary;
         }
 
+        #endregion
+
+        #region TooString 
+        public override string ToString()
+        {
+            return $"{nameof(_invoidid)}: {_invoidid}, {nameof(_commentary)}: {_commentary},{nameof(MadeDateTime)}: {MadeDateTime}, {nameof(commentary)}: {commentary}";
+        }
         #endregion
 
         #region Methods

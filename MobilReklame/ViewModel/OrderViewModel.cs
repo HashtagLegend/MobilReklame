@@ -68,7 +68,7 @@ namespace MobilReklame
 
         #region InvoiceProperties
 
-        public int InvoiceID { get; set; }
+        public int InvoiceId { get; set; }
         public string InvoiceCommentary { get; set; }
 
         #endregion
@@ -142,7 +142,7 @@ namespace MobilReklame
 
         public void CreateInvoice(Order order)
         {
-            order.CreateInvoice(InvoiceID, DateTime.Now, InvoiceCommentary);
+            order.CreateInvoice(InvoiceId, DateTime.Now, InvoiceCommentary);
         }
 
         public void CreateCustomer()
