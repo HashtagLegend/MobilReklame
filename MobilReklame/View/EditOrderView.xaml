@@ -104,6 +104,7 @@
                         <core:EventTriggerBehavior EventName="Click">
                             <core:CallMethodAction MethodName="CreateOffer" TargetObject="{Binding Mode=OneWay}"/>
                             <core:NavigateToPageAction TargetPage="MobilReklame.ViewModel.CreateOfferView"/>
+                            <core:CallMethodAction MethodName="UpdatetPrice" TargetObject="{Binding Mode=OneWay}"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
@@ -111,6 +112,7 @@
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:NavigateToPageAction TargetPage="MobilReklame.ViewModel.CreateOfferView"/>
+                            <core:CallMethodAction MethodName="UpdatetPrice" TargetObject="{Binding Mode=OneWay}"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

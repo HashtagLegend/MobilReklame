@@ -105,14 +105,28 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ListView HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="914" Margin="6,6,0,0" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" SelectedItem="{Binding SelectedProduct}" ItemTemplate="{StaticResource ProductListDataTemplate(UseThisOne)}"/>
-                <TextBox HorizontalAlignment="Left" Margin="730,379,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="731,335,0,0" TextWrapping="Wrap" Text="Pris Total" FontSize="24" VerticalAlignment="Top"/>
-                <Button Content="Gem" FontSize="24" HorizontalAlignment="Left" Margin="1354,367,0,13" VerticalAlignment="Stretch" Width="124">
+                <ListView HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="747" Margin="4,4,-3,0" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" ItemTemplate="{StaticResource ProductListDataTemplate(UseThisOne)}"/>
+                <TextBox HorizontalAlignment="Left" Margin="555,358,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Loading">
+                            <core:CallMethodAction MethodName="UpdatetPrice" TargetObject="{Binding Mode=OneWay}"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="556,327,0,0" TextWrapping="Wrap" Text="Pris Total" FontSize="24" VerticalAlignment="Top"/>
+                <Button Content="Færdig" FontSize="24" HorizontalAlignment="Left" Margin="328,360,0,0" VerticalAlignment="Top" Height="43" Width="109">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:CallMethodAction/>
-                            <core:NavigateToPageAction/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.View.EditOrderView"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <Button Content="Fjern produkt" HorizontalAlignment="Left" Height="44" Margin="72,359,0,0" VerticalAlignment="Top" Width="114">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction MethodName="DeleteProductFromList" TargetObject="{Binding Mode=OneWay}"/>
+                            <core:CallMethodAction/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

@@ -87,12 +87,12 @@ namespace MobilReklame
         #endregion
 
 
-        public ObservableCollection<Customer> CustomerList { get; set; }
+
         public ObservableCollection<Order> OrderList { get; set; }
-        
+
         #endregion
 
-       
+
 
         public OrderViewModel()
         {
@@ -125,26 +125,40 @@ namespace MobilReklame
 
         public void CreateOffer()
         {
-            SavedOrder.CreateOffer();          
+            if (SavedOrder.OfferToOrder == null)
+            {
+                SavedOrder.CreateOffer();
+            }
+            else
+            {
+                MessageDialogHelper.Show("Der er allerede oprettet et tilbud og du henvises herved til pågældende tilbud.", "Opmærksom");
+            }
+                   
         }
         
         public void CreateProductsToOffer()
         {
-            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice, ProductLength, ProductWidth));
-            SavedOrder.OfferToOrder.CalculateTotalPrice(ProductQuantity,ProductPrice);
-            TotalPrice = SavedOrder.OfferToOrder.TotalPrice;
+            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice));
+            UpdatetPrice();
             OnPropertyChanged();
         }
 
-        public void CalculatePrice()
+        public void UpdatetPrice()
         {
-            SavedOrder.OfferToOrder.CalculateTotalPrice(ProductQuantity, ProductPrice);
+            double localTotalPrice = 0;
+            foreach (Product product in SavedOrder.OfferToOrder.ProductList)
+            {
+                localTotalPrice = (product.Price * product.Quantity)+localTotalPrice;
+            }
+            TotalPrice = localTotalPrice;
         }
 
 
         public void DeleteProductFromList()
         {
-           
+            SavedOrder.OfferToOrder.ProductList.Remove(SelectedProduct);
+            UpdatetPrice();
+            
         }
 
         public void CreateInvoice(Order order)
