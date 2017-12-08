@@ -41,7 +41,7 @@ namespace MobilReklame
         public string ViewOrderName { get; set; }
         //public string ViewOrderID { get; set; }
         public string ViewCommentary { get; set; }
-        public DateTime ViewDeadline { get; set; }
+        public string ViewDeadline { get; set; }
         public string ViewDelivery { get; set; }
         public string ViewOrderStatus { get { return SavedOrder.Status; }}
         public string ViewOrderFase { get { return SavedOrder.Fase; } }
@@ -158,12 +158,18 @@ namespace MobilReklame
         {
             SavedOrder.OfferToOrder.ProductList.Remove(SelectedProduct);
             UpdatetPrice();
-            
         }
-
-        public void CreateInvoice(Order order)
+        
+        public void CreateInvoice()
         {
-            order.CreateInvoice(InvoiceID, DateTime.Now, InvoiceCommentary);
+            if (SavedOrder.InvoiceToOrder == null)
+            {
+                SavedOrder.CreateInvoice();
+            }
+            else
+            {
+                MessageDialogHelper.Show("Der er allerede oprettet en faktura og du henvises herved til den pågældende faktura.", "Opmærksom");
+            }
         }
 
         public void CreateCustomer()
@@ -177,7 +183,7 @@ namespace MobilReklame
             OrderArchiveSingleton.Instance.AddOrderToArchive(SavedOrder);
             OrderCatalogSingleton.Instance.RemoveOrder(SavedOrder);
             OnPropertyChanged();
-            MessageDialogHelper.Show("Ordren er flyttet til Ordre Arkivet!", "Arkiv");
+            
         }
 
         public void DeleteOrder()

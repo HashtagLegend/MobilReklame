@@ -13,9 +13,11 @@
         <DataTemplate x:Key="EditOrderProductListDataTemplate">
             <Grid Width="749" Height="40">
                 <StackPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="749" Orientation="Horizontal">
-                    <TextBox TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="445" IsReadOnly="True" BorderThickness="1,1,0,1"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="51" IsReadOnly="True" BorderThickness="0,1"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="51" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="400" IsReadOnly="True" BorderThickness="1,1,0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="87" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Length, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="47" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="  x" FontSize="24" Width="47" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="41" IsReadOnly="True" BorderThickness="0,1,1,1"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -72,7 +74,7 @@
                 <TextBlock Text="Ordre navn:" HorizontalAlignment="Left" Height="40" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="{Binding SavedOrder.OrderName, Mode=TwoWay}" HorizontalAlignment="Left" Height="40" Margin="140,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBlock Text="Ordre ID:" HorizontalAlignment="Left" Height="40" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="{Binding SavedOrder.OrderId}" HorizontalAlignment="Left" Height="40" Margin="115,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="{Binding SavedOrder.OrderId}" HorizontalAlignment="Left" Height="40" Margin="141,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <Grid Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" Margin="500,0,0,59" BorderBrush="Black" BorderThickness="1">
                     <TextBox Text="Kunde:" HorizontalAlignment="Left" Height="40" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.CompanyName}" HorizontalAlignment="Left" Height="40" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
@@ -80,23 +82,27 @@
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Att}" HorizontalAlignment="Left" Height="40" Margin="10,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Adress}" HorizontalAlignment="Left" Height="40" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 </Grid>
-                <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="11,220,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="445" FontSize="24"/>
-                <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="462,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
-                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="514,220,-14,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="12,221,0,-2" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" FontSize="24"/>
+                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="436,222,0,-3" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontSize="24" SelectionChanged="TextBlock_SelectionChanged" RenderTransformOrigin="-0.196,0.45"/>
+                <TextBlock HorizontalAlignment="Left" Height="40" Margin="535,224,0,-5" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" FontSize="24">
+                    <Run Text="Mål"/>
+                    <Run Text=" i mm"/>
+                    <Run Text="(LxB)"/>
+                </TextBlock>
                 <TextBox Text="{Binding SavedOrder.Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,259" BorderBrush="Black" BorderThickness="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="103*"/>
-                    <ColumnDefinition Width="647*"/>
+                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="13*"/>
                 </Grid.ColumnDefinitions>
-                <ListView HorizontalAlignment="Left" Height="258" Margin="4,2,-3,-1" VerticalAlignment="Top" Width="749" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" ItemTemplate="{StaticResource EditOrderProductListDataTemplate}" Grid.ColumnSpan="2"/>
+                <ListView HorizontalAlignment="Left" Height="258" Margin="8,6,-9,-5" VerticalAlignment="Top" Width="749" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" ItemTemplate="{StaticResource EditOrderProductListDataTemplate}" Grid.ColumnSpan="2"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,0" BorderBrush="Black" BorderThickness="1">
-                <TextBlock Text="Kommentar:" HorizontalAlignment="Left" Height="180" Margin="50,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBox Text="{Binding SavedOrder.Commentary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="180" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
-                <TextBlock Text="Leverance:" HorizontalAlignment="Left" Height="180" Margin="450,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBox Text="{Binding SavedOrder.Delivery, Mode=TwoWay}" HorizontalAlignment="Left" Height="180" Margin="450,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
+                <TextBlock Text="Kommentar:" HorizontalAlignment="Left" Height="180" Margin="12,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" FontSize="24"/>
+                <TextBox Text="{Binding SavedOrder.Commentary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="178" Margin="15,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="349" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
+                <TextBlock Text="Leverance:" HorizontalAlignment="Left" Height="180" Margin="391,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" FontSize="24"/>
+                <TextBox Text="{Binding SavedOrder.Delivery, Mode=TwoWay}" HorizontalAlignment="Left" Height="179" Margin="394,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" FontSize="24" BorderThickness="1" BorderBrush="Black"/>
             </Grid>
             <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="749" Margin="750,0,0,0" BorderBrush="Black" BorderThickness="1">
                 <Button Content="Opret Tilbud" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="400" Margin="50,50,0,0" BorderBrush="Black" BorderThickness="1" FontSize="24">
@@ -190,6 +196,7 @@
                 <Button Content="Opret Faktura" HorizontalAlignment="Left" Height="75" Margin="51,465,0,0" VerticalAlignment="Top" Width="400" BorderBrush="Black" BorderThickness="1" FontSize="24">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
+                            <core:CallMethodAction MethodName="CreateInvoice" TargetObject="{Binding Mode=OneWay}"/>
                             <core:NavigateToPageAction TargetPage="MobilReklame.View.CreateInvoiceView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
@@ -197,7 +204,7 @@
                 <Button Content="Vis Faktura" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,465,0,0" BorderBrush="Black" BorderThickness="1" >
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="MobilReklame."/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame.View.CreateInvoiceView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

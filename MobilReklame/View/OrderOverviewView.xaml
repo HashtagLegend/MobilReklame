@@ -9,14 +9,16 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="OrderOverViewDataTemplate(Use this one)">
-            <StackPanel Background="White" Orientation="Horizontal" BorderBrush="Black">
+            <Grid Height="74" Background="White">
+                <StackPanel Background="White" Orientation="Horizontal" BorderBrush="Black" Margin="10,12,10,10">
 
-                <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="1,1,0,1"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Deadline, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1" Background="{Binding Color}"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" Width="396" IsReadOnly="True" BorderThickness="0,1"/>
-                <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" Width="400" IsReadOnly="True" BorderThickness="0,1,1,1"/>
-            </StackPanel>
+                    <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="1,1,0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Deadline, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" FontSize="24" Width="190" IsReadOnly="True" BorderThickness="0,1" Background="{Binding Color}"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Delivery}" FontSize="24" Width="396" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Commentary}" FontSize="24" Width="400" IsReadOnly="True" BorderThickness="0,1,1,1"/>
+                </StackPanel>
+            </Grid>
         </DataTemplate>
         <DataTemplate x:Key="CustomerArchiveTemplate">
             <Grid Height="45" Width="1390" Background="WhiteSmoke">

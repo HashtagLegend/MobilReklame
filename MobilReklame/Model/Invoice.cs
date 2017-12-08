@@ -8,43 +8,22 @@ namespace MobilReklame
 {
     public class Invoice
     {
-        #region Backing Fields
+        
 
-        private int _invoidid;
-        private DateTime _madeDateTime;
-        private string _commentary;
+        #region Properties
 
-        #endregion
+        public int InvoiceId { get; set; }
 
-        #region Propeties
-
-        public int invoidid
-        {
-            get { return _invoidid; }
-            set { _invoidid = value; }
-        }
-
-        public DateTime MadeDateTime
-        {
-            get { return _madeDateTime; }
-            set { _madeDateTime = value; }
-        }
-
-        public string commentary
-        {
-            get { return _commentary; }
-            set { _commentary = value; }
-        }
+        private static int _invoiceCounter = 10001;
 
         #endregion
 
         #region Constructor
 
-        public Invoice(int invoidid, DateTime madeDateTime, string commentary)
+        public Invoice()
         {
-            _invoidid = invoidid;
-            _madeDateTime = madeDateTime;
-            _commentary = commentary;
+            InvoiceId = _invoiceCounter;
+            _invoiceCounter++;
         }
 
         #endregion

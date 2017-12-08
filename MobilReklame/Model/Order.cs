@@ -17,7 +17,7 @@ namespace MobilReklame
         public int OrderId { get; set; }
         public int InvoiceId { get; set; }
         public string Commentary { get; set; }
-        public DateTime Deadline { get; set; }
+        public string Deadline { get; set; }
         public string Delivery { get; set; }
         public Offer OfferToOrder { get; set; }
         public Invoice InvoiceToOrder { get; set; }
@@ -49,7 +49,6 @@ namespace MobilReklame
             }
         }
 
-        private static int _invoiceCounter = (10001);
         private static int _counter = (10001);
         private string _color;
         private string _status;
@@ -62,9 +61,8 @@ namespace MobilReklame
 
         #region Constructor
 
-        public Order(string orderName, DateTime deadline, string delivery, string commentary)
+        public Order(string orderName, string deadline, string delivery, string commentary)
         {
-            InvoiceId = _invoiceCounter++;
             OrderName = orderName;
             OrderId = _counter++;
             Deadline = deadline;
@@ -81,35 +79,16 @@ namespace MobilReklame
             OfferToOrder = new Offer();
         }
 
-        public void CreateInvoice(int invoiceid, DateTime date, string commentary)
+        public void CreateInvoice()
         {
-            InvoiceToOrder = new Invoice(invoiceid, DateTime.Now, commentary);
-        
-
+            InvoiceToOrder = new Invoice();
         }
 
         public void CreateCustomer()
         {
             CustomerToOrder = new Customer(ViewCompanyName, ViewPhoneNumber, ViewAdress, ViewEmail, ViewATT, ViewCVR);
         }
-
-       
-        public void ShowOffer()
-        {
-
-        }
-
-        public void ShowInvoice()
-        {
-
-        }
-
-        public void EndOrder()
-        {
-
-        }
-
-
+        
         #endregion
 
         #region Order ToString
@@ -118,14 +97,6 @@ namespace MobilReklame
             return $"{nameof(OrderName)}: {OrderName}, {nameof(OrderId)}: {OrderId}, {nameof(Commentary)}: {Commentary}, {nameof(Deadline)}: {Deadline}, {nameof(Delivery)}: {Delivery}";
         }
         #endregion
-
-        /// <summary>
-        /// Tilbud Rød
-        /// Produktion
-        /// Levering
-        /// Montering
-        /// Afslutning
-        /// </summary>
         
         #region PropertyChangeSupport
 

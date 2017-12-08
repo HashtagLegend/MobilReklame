@@ -34,13 +34,15 @@ namespace MobilReklame
 
         public string Width { get; set; }
 
-       
+        
+
         #endregion
 
         public override string ToString()
         {
             return $"{Name}: {Quantity}, {Price}";
         }
+        
     }
 
 

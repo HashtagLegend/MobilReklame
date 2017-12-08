@@ -37,7 +37,7 @@ namespace MobilReklame
 
         #region Methods
         
-        public void AddOrderToArchive(string orderName, DateTime deadline, string delivery, string commentary)
+        public void AddOrderToArchive(string orderName, string deadline, string delivery, string commentary)
         {
             OrderArchive.Add(new Order(orderName, deadline, delivery, commentary));
             //PersistencyServiceOrderArchive.SaveOrderArchiveAsJsonAsync(OrderArchive);

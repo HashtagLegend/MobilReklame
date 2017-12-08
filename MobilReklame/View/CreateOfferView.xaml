@@ -11,7 +11,7 @@
     <Page.Resources>
         <DataTemplate x:Key="ProductListDataTemplate"/>
         <DataTemplate x:Key="ProductListDataTemplate(UseThisOne)">
-            <Grid Width="920" Height="59.9">
+            <Grid Width="978" Height="59.9">
                 <StackPanel Height="60" VerticalAlignment="Top" Orientation="Horizontal">
                     <TextBox TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" FontSize="24" Width="404" IsReadOnly="True"/>
                     <TextBlock TextWrapping="Wrap" Text="" Width="14"/>
@@ -21,7 +21,7 @@
                     <TextBlock TextWrapping="Wrap" Text="" Width="12"/>
                     <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay}" FontSize="24" Width="70" IsReadOnly="True"/>
                     <TextBlock TextWrapping="Wrap" Text="" Width="22"/>
-                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" FontSize="24" Width="70" IsReadOnly="True"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" FontSize="24" Width="84" IsReadOnly="True"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -105,38 +105,36 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ListView HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="747" Margin="4,4,-3,0" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" ItemTemplate="{StaticResource ProductListDataTemplate(UseThisOne)}"/>
-                <TextBox HorizontalAlignment="Left" Margin="555,358,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView HorizontalAlignment="Left" Height="313" VerticalAlignment="Top" Width="1059" Margin="5,5,0,0" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" ItemTemplate="{StaticResource ProductListDataTemplate(UseThisOne)}"/>
+                <TextBox HorizontalAlignment="Left" Margin="818,381,0,0" TextWrapping="Wrap" FontSize="24" VerticalAlignment="Top" Width="172" IsReadOnly="True" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Loading">
                             <core:CallMethodAction MethodName="UpdatetPrice" TargetObject="{Binding Mode=OneWay}"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </TextBox>
-                <TextBlock HorizontalAlignment="Left" Margin="556,327,0,0" TextWrapping="Wrap" Text="Pris Total" FontSize="24" VerticalAlignment="Top"/>
-                <Button Content="Færdig" FontSize="24" HorizontalAlignment="Left" Margin="328,360,0,0" VerticalAlignment="Top" Height="43" Width="109">
+                <TextBlock HorizontalAlignment="Left" Margin="819,345,0,0" TextWrapping="Wrap" Text="Pris Total" FontSize="24" VerticalAlignment="Top"/>
+                <AppBarButton HorizontalAlignment="Left" Icon="Save" Label="" Margin="1428,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.39,0.8" Foreground="#FF2800FF" Height="42" Width="62">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:CallMethodAction/>
                             <core:NavigateToPageAction TargetPage="MobilReklame.View.EditOrderView"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
-                </Button>
-                <Button Content="Fjern produkt" HorizontalAlignment="Left" Height="44" Margin="72,359,0,0" VerticalAlignment="Top" Width="114">
+                </AppBarButton>
+                <AppBarButton HorizontalAlignment="Left" Icon="Delete" Label="" Margin="1354,388,0,0" VerticalAlignment="Top" Foreground="#FFFF0011" RenderTransformOrigin="0.287,1.625" Height="41">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:CallMethodAction MethodName="DeleteProductFromList" TargetObject="{Binding Mode=OneWay}"/>
-                            <core:CallMethodAction/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
-                </Button>
+                </AppBarButton>
             </Grid>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="67" Margin="2,260,-6,0" VerticalAlignment="Top" Width="1504"/>
             <TextBox x:Name="ProductTB" HorizontalAlignment="Left" Margin="6,261,0,0" TextWrapping="Wrap" Text="{Binding ProductName, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="418" BorderThickness="1"/>
+            <TextBox HorizontalAlignment="Left" Margin="439,261,0,0" TextWrapping="Wrap" Text="{Binding ProductLength, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="138" BorderThickness="1"/>
+            <TextBox HorizontalAlignment="Left" Margin="597,261,0,0" TextWrapping="Wrap" Text="{Binding ProductWidth, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="126" BorderThickness="1"/>
             <TextBox HorizontalAlignment="Left" Margin="734,261,0,0" TextWrapping="Wrap" Text="{Binding ProductQuantity, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="70" BorderThickness="1"/>
             <TextBox HorizontalAlignment="Left" Margin="825,261,0,0" TextWrapping="Wrap" Text="{Binding ProductPrice, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="70" BorderThickness="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="597,261,0,0" TextWrapping="Wrap" Text="{Binding ProductWidth, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="126" BorderThickness="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="439,261,0,0" TextWrapping="Wrap" Text="{Binding ProductLength, Mode=TwoWay}" FontSize="24" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.479" Height="66" Width="138" BorderThickness="1"/>
-
             <Button Content="Tilføj" FontSize="24" HorizontalAlignment="Left" Margin="911,264,0,0" VerticalAlignment="Top" Height="57" Width="146">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
