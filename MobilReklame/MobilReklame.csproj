@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="PersistencyServices\PersistencyServiceOrderArchive.cs" />
     <Compile Include="PersistencyServices\PersistencyServiceCustomerArchive.cs" />
+    <Compile Include="View\CreateInvoiceView.xaml.cs">
+      <DependentUpon>CreateInvoiceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OrderArchive.xaml.cs">
       <DependentUpon>OrderArchive.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\CreateInvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\OrderArchive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
