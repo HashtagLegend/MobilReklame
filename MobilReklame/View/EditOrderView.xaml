@@ -15,8 +15,9 @@
 
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1070" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1910">
         <Grid x:Name="Banner" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
-            <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
-            <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
+            <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black">
+                <Image Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="700"/>
+            </GridView>
             <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
                 <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                     <interactivity:Interaction.Behaviors>
