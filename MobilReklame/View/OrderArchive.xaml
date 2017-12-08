@@ -42,6 +42,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="45" Margin="61,230,0,0" TextWrapping="Wrap" Text="Ordre Arkiv" VerticalAlignment="Top" Width="150" FontSize="24" Background="#FF1CB0DF" />
         <ListView HorizontalAlignment="Left" Height="531" Margin="48,340,0,0" VerticalAlignment="Top" Width="1417" ItemsSource="{Binding OrderArchive}" ItemTemplate="{StaticResource OrderArchiveDataTemplate}" Background="White"/>
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
         <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>

@@ -27,7 +27,7 @@
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
         <Grid x:Name="Banner" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
             <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
-            <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill" Height="175" Width="745"/>
             <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
                 <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
                     <interactivity:Interaction.Behaviors>
@@ -75,18 +75,21 @@
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,80,0,0" TextWrapping="Wrap" Text="Ordre ID:" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="115,80,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.OrderId}" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,200,0,0" TextWrapping="Wrap" Text="Faktura nr:" VerticalAlignment="Top" Width="159" FontSize="24"/>
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="130,200,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.InvoiceToOrder.invoidid}" VerticalAlignment="Top" Width="159" FontSize="24"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="130,200,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.InvoiceId}" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,245,0,0" TextWrapping="Wrap" Text="Produkter" VerticalAlignment="Top" Width="159" FontSize="24"/>
                     <Grid HorizontalAlignment="Right" Height="275" Margin="0,0,0,0" VerticalAlignment="Top" Width="250" BorderBrush="Black" BorderThickness="1">
                         <Grid HorizontalAlignment="Left" Height="50" Margin="0,0,0,0" VerticalAlignment="Top" Width="250" BorderBrush="Black" BorderThickness="1">
                             <TextBlock HorizontalAlignment="Center" Height="30" Margin="0,0,0,0" TextWrapping="Wrap" Text="Kunde" VerticalAlignment="Center" Width="70" FontSize="24"/>
                         </Grid>
-                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,50,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.OrderName}" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,50,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.CompanyName}" VerticalAlignment="Top" Width="250" FontSize="24"/>
                         <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,80,0,0" TextWrapping="Wrap" Text="TLF:" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,80,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.ViewPhoneNumber}" VerticalAlignment="Top" Width="200" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,80,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.PhoneNumber}" VerticalAlignment="Top" Width="200" FontSize="24"/>
                         <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,110,0,0" TextWrapping="Wrap" Text="ATT:" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="60,110,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.ViewATT}" VerticalAlignment="Top" Width="190" FontSize="24"/>
-                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,140,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.ViewAdress}" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="60,110,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.Att}" VerticalAlignment="Top" Width="190" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="0,140,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.Adress}" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,171,0,0" TextWrapping="Wrap" Text="CVR:" VerticalAlignment="Top" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="64,171,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.Cvr}" VerticalAlignment="Top" FontSize="24" Height="34" Width="170"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="1,204,0,0" TextWrapping="Wrap" Text="{Binding SavedOrder.CustomerToOrder.Email}" VerticalAlignment="Top" Height="34" Width="241" FontSize="24"/>
                     </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="502" Margin="0,275,0,0" VerticalAlignment="Top" Width="750" BorderBrush="Black" BorderThickness="1">

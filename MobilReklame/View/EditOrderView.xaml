@@ -195,7 +195,7 @@
                 <Button Content="Vis Faktura" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,465,0,0" BorderBrush="Black" BorderThickness="1" >
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="MobilReklame.InvoiceView"/>
+                            <core:NavigateToPageAction TargetPage="MobilReklame."/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>

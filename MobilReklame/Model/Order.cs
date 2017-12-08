@@ -15,6 +15,7 @@ namespace MobilReklame
         #region Properties
         public string OrderName { get; set; }
         public int OrderId { get; set; }
+        public int InvoiceId { get; set; }
         public string Commentary { get; set; }
         public DateTime Deadline { get; set; }
         public string Delivery { get; set; }
@@ -48,6 +49,7 @@ namespace MobilReklame
             }
         }
 
+        private static int _invoiceCounter = (10001);
         private static int _counter = (10001);
         private string _color;
         private string _status;
@@ -62,6 +64,7 @@ namespace MobilReklame
 
         public Order(string orderName, DateTime deadline, string delivery, string commentary)
         {
+            InvoiceId = _invoiceCounter++;
             OrderName = orderName;
             OrderId = _counter++;
             Deadline = deadline;
