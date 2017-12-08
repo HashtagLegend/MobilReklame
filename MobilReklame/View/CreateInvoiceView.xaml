@@ -13,6 +13,17 @@
         <mobilReklame:OrderViewModel/>
     </Page.DataContext>
 
+    <Page.Resources>
+        <DataTemplate x:Key="InvoiceProductDataTemplate">
+            <Grid Height="502" Width="750" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel HorizontalAlignment="Left" Height="40" Margin="0,0,0,0" VerticalAlignment="Top" Width="750" Orientation="Horizontal">
+                    <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" Width="250"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" Width="250"/>
+                    <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay}" Width="250"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
         <Grid x:Name="Banner" Height="1000" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="1500">
             <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
@@ -79,21 +90,7 @@
                     </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="502" Margin="0,275,0,0" VerticalAlignment="Top" Width="750" BorderBrush="Black" BorderThickness="1">
-                    <!--<ListView HorizontalAlignment="Left" Height="502" VerticalAlignment="Top" Width="750" ItemsSource="{Binding ProductList}" Margin="0,0,0,0">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Height="502" Width="750">
-                                    <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="750">
-                                        <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="750">
-                                            <TextBox x:Name="ProductTemplate" Height="50" VerticalAlignment="Top" Width="250" FontSize="24" Text="{Binding Name}" HorizontalAlignment="Left"/>
-                                            <TextBox x:Name="MeasureTemplate" Height="50" Text="{Binding Status}" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                                            <TextBox x:Name="CountTemplate" Height="50" Text="" VerticalAlignment="Top" Width="250" FontSize="24" IsReadOnly="True"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>-->
+                    <ListView HorizontalAlignment="Left" Height="502" VerticalAlignment="Top" Width="750" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" Margin="0,0,0,0" ItemTemplate="{StaticResource InvoiceProductDataTemplate}"/>
                 </Grid>
             </Grid>
             <Grid Height="777" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="750,0,0,0" BorderBrush="Black" BorderThickness="1">
@@ -214,6 +211,6 @@
                 </Button>
             </Grid>
         </Grid>
-        
+
     </Grid>
 </Page>
