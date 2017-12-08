@@ -31,7 +31,7 @@ namespace MobilReklame
 
        public void CreateProduct(string name, int quantity, double price, string length, string width)
        {
-           ProductList.Add(new Product(name,quantity, price));
+           ProductList.Add(new Product(name,quantity, price, length, width));
            
        }
    }

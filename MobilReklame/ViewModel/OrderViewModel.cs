@@ -138,7 +138,7 @@ namespace MobilReklame
         
         public void CreateProductsToOffer()
         {
-            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice));
+            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice, ProductLength, ProductWidth));
             UpdatetPrice();
             OnPropertyChanged();
         }
