@@ -85,12 +85,12 @@ namespace MobilReklame
         #endregion
 
 
-        public ObservableCollection<Customer> CustomerList { get; set; }
+
         public ObservableCollection<Order> OrderList { get; set; }
-        
+
         #endregion
 
-       
+
 
         public OrderViewModel()
         {
