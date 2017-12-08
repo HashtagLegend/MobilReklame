@@ -54,6 +54,8 @@ namespace MobilReklame
         public string ProductName { get; set; }
         public int ProductQuantity { get; set; }
         public double ProductPrice { get; set; }
+        public string ProductLength { get; set; }
+        public string ProductWidth { get; set; }
 
         public double TotalPrice
         {
@@ -128,7 +130,7 @@ namespace MobilReklame
         
         public void CreateProductsToOffer()
         {
-            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice));
+            SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice, ProductLength, ProductWidth));
             SavedOrder.OfferToOrder.CalculateTotalPrice(ProductQuantity,ProductPrice);
             TotalPrice = SavedOrder.OfferToOrder.TotalPrice;
             OnPropertyChanged();

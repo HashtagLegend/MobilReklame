@@ -11,11 +11,14 @@ namespace MobilReklame
       
 
         #region Constructor
-        public Product(string name, int quantity, double price)
+
+        public Product(string name, int quantity, double price, string length, string width)
         {
             Name = name;
             Quantity = quantity;
             Price = price;
+            Length = length;
+            Width = width;
         }
         
         #endregion
@@ -26,6 +29,10 @@ namespace MobilReklame
         public int Quantity { get; set; }
         
         public double Price { get; set; }
+
+        public string Length { get; set; }
+
+        public string Width { get; set; }
 
        
         #endregion

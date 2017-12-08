@@ -41,9 +41,9 @@ namespace MobilReklame
             ProductList = new ObservableCollection<Product>();         
         }
 
-       public void CreateProduct(string name, int quantity, double price)
+       public void CreateProduct(string name, int quantity, double price, string length, string width)
        {
-           ProductList.Add(new Product(name,quantity, price));
+           ProductList.Add(new Product(name,quantity, price, length, width));
             OnPropertyChanged();
        }
 

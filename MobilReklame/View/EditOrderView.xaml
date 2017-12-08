@@ -9,6 +9,17 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="EditOrderProductListDataTemplate">
+            <Grid Width="749" Height="40">
+                <StackPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="749" Orientation="Horizontal">
+                    <TextBox TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="445" IsReadOnly="True" BorderThickness="1,1,0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="51" IsReadOnly="True" BorderThickness="0,1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="24" Width="51" IsReadOnly="True" BorderThickness="0,1"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Page.DataContext>
         <mobilReklame:OrderViewModel/>
     </Page.DataContext>
@@ -69,30 +80,17 @@
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Att}" HorizontalAlignment="Left" Height="40" Margin="10,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Adress}" HorizontalAlignment="Left" Height="40" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 </Grid>
-                <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="260,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
-                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="510,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+                <TextBlock Text="Produkter" HorizontalAlignment="Left" Height="40" Margin="11,220,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="445" FontSize="24"/>
+                <TextBlock Text="Mål" HorizontalAlignment="Left" Height="40" Margin="462,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" FontSize="24" SelectionChanged="TextBlock_SelectionChanged"/>
+                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="514,220,-14,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 <TextBox Text="{Binding SavedOrder.Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding SavedOrder.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="48" Margin="10,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontSize="24"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,259" BorderBrush="Black" BorderThickness="1">
-                <Grid x:Name="ListViewGrid" HorizontalAlignment="Left" Height="259" Margin="0,0,0,0" VerticalAlignment="Top" Width="750">
-                    <!--<ListView HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="750" ItemsSource="{Binding ProductList}" Margin="0,0,0,0">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Height="50" Width="1400">
-                                    <StackPanel HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1400">
-                                        <StackPanel HorizontalAlignment="Left" Height="50" Orientation="Horizontal" VerticalAlignment="Top" Width="1400">
-                                            <TextBox x:Name="ProductTemplate" Height="50" VerticalAlignment="Top" Width="250" FontSize="24" Text="{Binding Name}" HorizontalAlignment="Left"/>
-                                            <TextBox x:Name="MeasureTemplate" Height="50" Text="{Binding Status}" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                                            <TextBox x:Name="CountTemplate" Height="50" Text="" VerticalAlignment="Top" Width="250" FontSize="24" IsReadOnly="True"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>-->
-
-                </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="103*"/>
+                    <ColumnDefinition Width="647*"/>
+                </Grid.ColumnDefinitions>
+                <ListView HorizontalAlignment="Left" Height="258" Margin="4,2,-3,-1" VerticalAlignment="Top" Width="749" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" ItemTemplate="{StaticResource EditOrderProductListDataTemplate}" Grid.ColumnSpan="2"/>
             </Grid>
             <Grid Height="259" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="750" Margin="0,0,0,0" BorderBrush="Black" BorderThickness="1">
                 <TextBlock Text="Kommentar:" HorizontalAlignment="Left" Height="180" Margin="50,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
