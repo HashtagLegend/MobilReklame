@@ -81,7 +81,7 @@ namespace MobilReklame
         public void CreateInvoice(int invoiceid, DateTime date, string commentary)
         {
             InvoiceToOrder = new Invoice(invoiceid, DateTime.Now, commentary);
-            double totalprice = OfferToOrder.TotalPrice;
+        
 
         }
 
