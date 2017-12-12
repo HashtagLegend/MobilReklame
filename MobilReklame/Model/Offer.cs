@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Audio;
 using MobilReklame.Annotations;
+using MobilReklame.PersistencyServices;
+using MobilReklame.Singleton;
 
 namespace MobilReklame
 {
@@ -29,10 +31,5 @@ namespace MobilReklame
             ProductList = new ObservableCollection<Product>();         
         }
 
-       public void CreateProduct(string name, int quantity, double price, string length, string width)
-       {
-           ProductList.Add(new Product(name, quantity, price, length, width));
-           
-       }
    }
 }

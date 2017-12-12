@@ -73,8 +73,8 @@
         <TextBox x:Name="EmailList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="757,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="AttList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="989,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="CVRList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1221,290,0,0" Background="#668F8F8F"/>
-        <ListView HorizontalAlignment="Left" Margin="50,340,0,78" Width="1442" ItemsSource="{Binding CustomerArchive}" ItemTemplate="{StaticResource CustomerArchiveTemplate}"/>
-        <AppBarButton HorizontalAlignment="Left" Icon="Delete" Label="Fjern valgte kunde" Margin="1329,1002,0,0" VerticalAlignment="Top" Width="124" Foreground="Red">
+        <ListView HorizontalAlignment="Left" Margin="50,340,0,78" Width="1532" ItemsSource="{Binding CustomerArchive}" ItemTemplate="{StaticResource CustomerArchiveTemplate}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"/>
+        <AppBarButton HorizontalAlignment="Left" Icon="Delete" Label="Fjern valgte kunde" Margin="1458,284,0,0" VerticalAlignment="Top" Width="124" Foreground="Red">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Click">
                     <core:CallMethodAction MethodName="DeleteCustomer" TargetObject="{Binding Mode=OneWay}"/>

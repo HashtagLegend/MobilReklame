@@ -138,6 +138,7 @@ namespace MobilReklame
             SavedOrder.OfferToOrder.ProductList.Add(new Product(ProductName,ProductQuantity,ProductPrice, ProductLength, ProductWidth));
             UpdatetPrice();
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
 
         public void UpdatetPrice()
@@ -166,6 +167,8 @@ namespace MobilReklame
         {
             SavedOrder.OfferToOrder.ProductList.Remove(SelectedProduct);
             UpdatetPrice();
+            SaveOrderCatalog();
+
         }
         
         public void CreateInvoice()
@@ -178,6 +181,7 @@ namespace MobilReklame
             {
                 MessageDialogHelper.Show("Der er allerede oprettet en faktura og du henvises herved til den pågældende faktura.", "Opmærksom");
             }
+            SaveOrderCatalog();
         }
 
         public void CreateCustomer()
@@ -191,7 +195,7 @@ namespace MobilReklame
             OrderArchiveSingleton.Instance.AddOrderToArchive(SavedOrder);
             OrderCatalogSingleton.Instance.RemoveOrder(SavedOrder);
             OnPropertyChanged();
-            
+            MessageDialogHelper.Show("Ordren er flyttet til ordrearkivet!", "Oplysning");
         }
 
         public void DeleteOrder()
@@ -214,6 +218,11 @@ namespace MobilReklame
         }
 
         #endregion
+
+        public void SaveOrderCatalog()
+        {
+            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalogSingleton.Instance.OrderCatalog);
+        }
         
         #region PropertyChangeSupport
 
@@ -232,46 +241,54 @@ namespace MobilReklame
         {
             SavedOrder.Status = "Tilbud";
             OnPropertyChanged();
+            SaveOrderCatalog();
 
         }
         public void StatusProduktion()
         {
             SavedOrder.Status = "Produktion";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         public void StatusLevering()
         {
             SavedOrder.Status = "Levering";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         public void StatusMontering()
         {
             SavedOrder.Status = "Montering";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
 
         public void StatusAfslutning()
         {
             SavedOrder.Status = "Afslutning";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         public void StatusRed()
         {
             SavedOrder.Color = "Red";
             SavedOrder.Fase = "Ikke Startet";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         public void StatusYellow()
         {
             SavedOrder.Color = "Yellow";
             SavedOrder.Fase = "Igang";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         public void StatusGreen()
         {
             SavedOrder.Color = "Green";
             SavedOrder.Fase = "Færdig";
             OnPropertyChanged();
+            SaveOrderCatalog();
         }
         #endregion
     }

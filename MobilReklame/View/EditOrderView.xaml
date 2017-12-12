@@ -123,7 +123,7 @@
                     </interactivity:Interaction.Behaviors>
                 </Button>
                 <TextBlock Width="50" Height="35" Text="Fase:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,165"/>
-                <Button Content="{Binding ViewOrderStatus}" Height="75" Width="650" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,201,0,0" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="75" Width="650" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,201,0,0" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Tilbud" Width="475" FontSize="24">
@@ -165,7 +165,7 @@
                     </Button.Flyout>
                 </Button>
                 <TextBlock Width="100" Height="35" Text="Status:" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,300"/>
-                <Button Content="{Binding ViewOrderFase, Mode=OneWay}" Height="75" Width="649" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,337,0,0" HorizontalContentAlignment="Left" FontSize="24">
+                <Button Content="{Binding ViewOrderFase, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="75" Width="649" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,337,0,0" HorizontalContentAlignment="Left" FontSize="24">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Ikke startet" Width="475" FontSize="24">
@@ -216,7 +216,7 @@
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </Button>
-                <Button Content="Slet Ordre" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,600,0,0" BorderBrush="Black" BorderThickness="1">
+                <Button Content="Slet Ordre" Height="75" Width="200" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,600,0,0" BorderBrush="Black" BorderThickness="1" Background="Red">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:CallMethodAction MethodName="DeleteOrder" TargetObject="{Binding Mode=OneWay}"/>
