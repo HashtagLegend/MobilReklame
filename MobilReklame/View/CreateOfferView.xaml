@@ -88,15 +88,15 @@
                     <TextBlock Text="{Binding SavedOrder.CustomerToOrder.Adress}" HorizontalAlignment="Left" Height="40" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
                 </Grid>
                 <TextBlock Text="Produkt" HorizontalAlignment="Left" Height="40" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="733,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="24"/>
-                <TextBlock Text="Pris" HorizontalAlignment="Left" Height="40" Margin="824,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" FontSize="24"/>
+                <TextBlock Text="Antal" HorizontalAlignment="Left" Height="40" Margin="734,228,0,-2" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="24"/>
+                <TextBlock Text="Pris" HorizontalAlignment="Left" Height="40" Margin="819,229,0,-3" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" FontSize="24"/>
                 <TextBlock Text="Tilbuds ID:" HorizontalAlignment="Left" Height="40" Margin="13,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" FontSize="24"/>
                 <TextBlock Text="{Binding SavedOrder.OfferToOrder.OfferID}" HorizontalAlignment="Left" Height="40" Margin="141,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
-                <TextBlock HorizontalAlignment="Left" Height="40" Margin="436,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontSize="24">
+                <TextBlock HorizontalAlignment="Left" Height="40" Margin="423,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" FontSize="24">
                     <Run Text="Længde"/>
                     <Run Text="(mm)"/>
                 </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="40" Margin="593,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="24">
+                <TextBlock HorizontalAlignment="Left" Height="40" Margin="595,227,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" FontSize="24">
                     <Run Text="Bredde"/>
                     <Run Text="(mm)"/>
                 </TextBlock>

@@ -85,7 +85,13 @@
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="512" Margin="0,265,-748,0" VerticalAlignment="Top" Width="1498" BorderBrush="Black" BorderThickness="1">
                     <ListView HorizontalAlignment="Left" Height="497" VerticalAlignment="Top" Width="1057" ItemsSource="{Binding SavedOrder.OfferToOrder.ProductList}" Margin="5,5,0,0" ItemTemplate="{StaticResource InvoiceProductDataTemplate}"/>
-                    <TextBox HorizontalAlignment="Left" Margin="1130,432,0,0" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="24" Width="216"/>
+                    <TextBox HorizontalAlignment="Left" Margin="1130,432,0,0" TextWrapping="Wrap" Text="{Binding TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontSize="24" Width="216">
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="Loading">
+                                <core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="TotalPriceWithVat"/>
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </TextBox>
                     <AppBarButton HorizontalAlignment="Left" Icon="Save" Label="" Margin="1420,433,0,0" VerticalAlignment="Top" Foreground="#FF3400FF" Height="43" RenderTransformOrigin="0.603,0.135">
                         <interactivity:Interaction.Behaviors>
                             <core:EventTriggerBehavior EventName="Click">

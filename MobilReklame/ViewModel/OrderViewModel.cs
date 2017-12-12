@@ -153,6 +153,17 @@ namespace MobilReklame
             TotalPrice = localTotalPrice;
         }
 
+        public void TotalPriceWithVat()
+        {
+            double localTotalPriceWithVat = 0;
+            foreach (Product product in SavedOrder.OfferToOrder.ProductList)
+            {
+                localTotalPriceWithVat = (product.Price * product.Quantity) + localTotalPriceWithVat;
+            }
+            TotalPrice = localTotalPriceWithVat * SavedOrder.OfferToOrder._vat;
+
+        }
+
 
         public void DeleteProductFromList()
         {

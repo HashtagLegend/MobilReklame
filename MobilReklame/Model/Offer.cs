@@ -14,7 +14,7 @@ namespace MobilReklame
    public class Offer
    {
 
-       private double _vat = 1.25;
+       public double _vat = 1.25;
        public int OfferID { get; set; }
        public string Name { get; set; }
        
@@ -31,7 +31,7 @@ namespace MobilReklame
 
        public void CreateProduct(string name, int quantity, double price, string length, string width)
        {
-           ProductList.Add(new Product(name,quantity, price, length, width));
+           ProductList.Add(new Product(name, quantity, price, length, width));
            
        }
    }
