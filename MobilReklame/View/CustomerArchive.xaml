@@ -10,24 +10,14 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="CustomerArchiveTemplate">
-            <Grid Height="45" Width="1390" Background="WhiteSmoke">
-                <StackPanel HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="232" Margin="693,0,0,0" Grid.ColumnSpan="2">
-                    <TextBox TextWrapping="Wrap" Text="{Binding Email, Mode=OneWay}" FontSize="24" Height="44" Margin="1,0,-1,0" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="232" Margin="231,-2,0,0">
-                    <TextBox TextWrapping="Wrap" Text="{Binding PhoneNumber, Mode=OneWay}" FontSize="24" Width="232" Height="45" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="232" Margin="463,-2,0,0">
-                    <TextBox TextWrapping="Wrap" Text="{Binding Adress, Mode=OneWay}" FontSize="24" Width="232" Height="45" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="45" VerticalAlignment="Top" Width="232.5">
-                    <TextBox TextWrapping="Wrap" Text="{Binding Cvr, Mode=TwoWay}" FontSize="24" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="231">
-                    <TextBox TextWrapping="Wrap" Text="{Binding CompanyName, Mode=OneWay}" FontSize="24" IsReadOnly="True"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" Height="45" Margin="926,-2,0,0" VerticalAlignment="Top" Width="232.5">
-                    <TextBox TextWrapping="Wrap" Text="{Binding Att, Mode=TwoWay}" FontSize="24" Height="45" IsReadOnly="True"/>
+            <Grid Width="1390" Background="WhiteSmoke">
+                <StackPanel HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1390" Orientation="Horizontal">
+                    <TextBox TextWrapping="Wrap" Text="{Binding CompanyName, Mode=OneWay}" FontSize="24" IsReadOnly="True" Margin="0,0,1,0" Height="Auto" Width="232"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding PhoneNumber, Mode=OneWay}" FontSize="24" Width="232" IsReadOnly="True" Height="45" Margin="0,0,0,-1"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Adress, Mode=OneWay}" FontSize="24" Width="232" IsReadOnly="True" Height="Auto"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Email, Mode=OneWay}" FontSize="24" IsReadOnly="True" Height="Auto" Width="232"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Att, Mode=TwoWay}" FontSize="24" IsReadOnly="True" Margin="0,0,-1,0" Width="232"/>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Cvr, Mode=TwoWay}" FontSize="24" IsReadOnly="True" Margin="0,0,-1,0" Height="Auto" Width="232"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -37,7 +27,6 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="45" Margin="61,230,0,0" TextWrapping="Wrap" Text="Kunde Arkiv" VerticalAlignment="Top" Width="150" FontSize="24" Background="#FF1CB0DF" />
         <GridView Width="1920" VerticalAlignment="Top" Height="170" HorizontalAlignment="Left" Background="Black"/>
         <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
 
@@ -63,7 +52,7 @@
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </Button>
-            <Button Content="Kunde Arkiv" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button Content="Kunde Arkiv" Height="53" Width="183" Background="#FF00DCFF" BorderBrush="{x:Null}">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
                         <core:NavigateToPageAction/>
@@ -84,7 +73,14 @@
         <TextBox x:Name="EmailList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="757,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="AttList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Att" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="989,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="CVRList" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="CVR" VerticalAlignment="Top" Width="232" FontSize="24" IsReadOnly="True" Margin="1221,290,0,0" Background="#668F8F8F"/>
-        <ListView HorizontalAlignment="Left" Height="352" Margin="50,340,0,0" VerticalAlignment="Top" Width="1442" ItemsSource="{Binding CustomerArchive}" ItemTemplate="{StaticResource CustomerArchiveTemplate}"/>
+        <ListView HorizontalAlignment="Left" Margin="50,340,0,78" Width="1442" ItemsSource="{Binding CustomerArchive}" ItemTemplate="{StaticResource CustomerArchiveTemplate}"/>
+        <AppBarButton HorizontalAlignment="Left" Icon="Delete" Label="Fjern valgte kunde" Margin="1329,1002,0,0" VerticalAlignment="Top" Width="124" Foreground="Red">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Click">
+                    <core:CallMethodAction MethodName="DeleteCustomer" TargetObject="{Binding Mode=OneWay}"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </AppBarButton>
 
     </Grid>
 </Page>

@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using MobilReklame.Annotations;
+using Windows.UI.Popups;
 
 namespace MobilReklame
 {
@@ -43,6 +44,32 @@ namespace MobilReklame
         {
             OrderArchiveSingleton.Instance.RemoveOrderFromArchive(SelectedOrder);
             OnPropertyChanged();
+        }
+        
+        public void DeleteCustomer()
+        {
+            CustomerArchiveSingleton.Instance.RemoveCustomer(SelectedCustomer);
+            OnPropertyChanged();
+            MessageDialogHelper.Show("Kunden er fjernet fra arkivet!", "Oplysning");
+        }
+
+        public void DeleteOrderFromArchive()
+        {
+            OrderArchiveSingleton.Instance.RemoveOrderFromArchive(SelectedOrder);
+            OnPropertyChanged();
+            MessageDialogHelper.Show("Ordren er fjernet fra arkivet", "Oplysning");
+        }
+        #endregion
+
+        #region MessageDialogHelper
+
+        private class MessageDialogHelper
+        {
+            public static async void Show(string content, string title)
+            {
+                MessageDialog messageDialog = new MessageDialog(content, title);
+                await messageDialog.ShowAsync();
+            }
         }
 
         #endregion

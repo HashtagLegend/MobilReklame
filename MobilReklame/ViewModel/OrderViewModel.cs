@@ -98,9 +98,6 @@ namespace MobilReklame
         {
             //Tilføjer et object til OrderCatalog listen og initialisere den som OrderList, så vi kan referere til den herfra.
             OrderList = OrderCatalogSingleton.Instance.OrderCatalog;
-            //OrderCatalogSingleton.Instance.AddOrder(new Order("VikingeBorg", DateTime.Now, "Nej", "Ingen kommentar"));
-            //OrderCatalogSingleton.Instance.AddOrder(new Order("Legeplads", DateTime.Now, "Nej", "Ingen kommentar"));
-
         }
 
         #region Methods

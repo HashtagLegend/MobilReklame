@@ -23,45 +23,45 @@ namespace MobilReklame.Singleton
         private OrderCatalogSingleton()
         {
             OrderCatalog = new ObservableCollection<Order>();
-            //OrderCatalog.Clear();
-            //LoadOrderCatalogAsync();
-            
+            OrderCatalog.Clear();
+            LoadOrderCatalogAsync();
+
         }
 
         public void AddOrder(string orderName, string deadline, string delivery, string commentary)
         {
             OrderCatalog.Add(new Order(orderName, deadline, delivery, commentary));
-            //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
         public void AddOrder(Order order)
         {
             OrderCatalog.Add(order);
-            //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
         public void RemoveOrder(Order orderToBeRemoved)
         {
             OrderCatalog.Remove(orderToBeRemoved);
-            //PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
+            PersistencyServiceOrderCatalog.SaveOrderListAsJsonAsync(OrderCatalog);
         }
 
-        //public async void LoadOrderCatalogAsync()
-        //{
-        //    var orderCatalog = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
-        //    OrderCatalog.Clear();
-            
-        //    if(orderCatalog != null)
-        //        foreach (var orderObjects in orderCatalog)
-        //        {
-        //            OrderCatalog.Add(orderObjects);
-        //        }
-        //    else
-        //        {
-        //            OrderCatalog.Add(new Order("Vikingeborg", "001", DateTime.Now, "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
-        //        }
-        //}
-        
+        public async void LoadOrderCatalogAsync()
+        {
+            var orderCatalog = await PersistencyServiceOrderCatalog.LoadOrderListFromJsonAsync();
+            OrderCatalog.Clear();
+
+            if (orderCatalog != null)
+                foreach (var orderObjects in orderCatalog)
+                {
+                    OrderCatalog.Add(orderObjects);
+                }
+            else
+            {
+                OrderCatalog.Add(new Order("Vikingeborg", "12/10-2018", "Ingen levering, kunde henter selv", "Åbningstider 9 - 16"));
+            }
+        }
+
     }
 }
 

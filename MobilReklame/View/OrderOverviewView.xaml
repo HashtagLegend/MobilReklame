@@ -9,7 +9,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="OrderOverViewDataTemplate(Use this one)">
-            <Grid Height="74" Background="White">
+            <Grid Background="White">
                 <StackPanel Background="White" Orientation="Horizontal" BorderBrush="Black" Margin="10,12,10,10">
 
                     <TextBox TextWrapping="Wrap" Text="{Binding OrderName, Mode=TwoWay}" FontSize="24" Width="200" IsReadOnly="True" BorderThickness="1,1,0,1"/>
@@ -52,7 +52,7 @@
         <GridView HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="1920" Background="Black"/>
         <Image Margin="10,-5,1165,910" Source="ms-appx:///Images/mrlogo.png" Stretch="Fill"/>
         <GridView HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="1920" Height="53" Background="#FF1CB0DF">
-            <Button Content="Igangværende Ordre" Height="53" Width="183" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button Content="Igangværende Ordre" Height="53" Width="183" Background="#FF00DCFF" BorderBrush="{x:Null}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="MobilReklame.OrderOverviewView"/>
@@ -103,9 +103,7 @@
         <TextBox x:Name="Deadline" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Deadline" VerticalAlignment="Top" Width="200" FontSize="24" IsReadOnly="True" Margin="260,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="Status" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" Width="200" FontSize="24" IsReadOnly="True" Margin="459,290,0,0" Background="#668F8F8F"/>
         <TextBox x:Name="Levering" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Levering" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="658,290,0,0" Background="#668F8F8F"/>
-        <TextBox x:Name="Kommentar" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="400" FontSize="24" IsReadOnly="True" Margin="1057,290,0,0" Background="#668F8F8F"/>
-        <TextBox x:Name="Choose" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Vælg" VerticalAlignment="Top" Width="100" FontSize="24" IsReadOnly="True" Margin="1456,290,0,0" Background="#668F8F8F"/>
-        <TextBox BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="45" Margin="61,230,0,0" TextWrapping="Wrap" Text="Igangværende Ordre" VerticalAlignment="Top" Width="260" FontSize="24" Background="#FF1CB0DF" />
+        <TextBox x:Name="Kommentar" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="Kommentar" VerticalAlignment="Top" Width="521" FontSize="24" IsReadOnly="True" Margin="1057,290,0,0" Background="#668F8F8F"/>
 
     </Grid>
 </Page>
