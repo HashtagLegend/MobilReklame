@@ -25,7 +25,6 @@ namespace MobilReklame.Singleton
             OrderCatalog = new ObservableCollection<Order>();
             OrderCatalog.Clear();
             LoadOrderCatalogAsync();
-
         }
 
         public void AddOrder(string orderName, string deadline, string delivery, string commentary)
